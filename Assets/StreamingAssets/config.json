@@ -1,0 +1,47 @@
+{
+  "jugador": {
+    "nombre": "Minero",
+    "vidas": 3,
+    "velocidad": 5,
+    "fuerzaSalto": 9,
+    "invulnerabilidad": 1.5,
+    "danoJugador": 10,
+    "cooldownAtaque": 0.6
+  },
+
+  "requisitoJefe": [
+    { "tipo": "mineral", "cantidad": 5 },
+    { "tipo": "bateria", "cantidad": 2 },
+    { "tipo": "mapa",    "cantidad": 3 }
+  ],
+
+  "recursos": [
+    { "id": "hierro",    "tipo": "mineral", "puntos": 10, "efecto": "velocidad", "valor": 1.5, "duracion": 5 },
+    { "id": "cobre",     "tipo": "mineral", "puntos": 10, "efecto": "salto",     "valor": 1.3, "duracion": 5 },
+    { "id": "bateria",   "tipo": "bateria", "puntos": 25, "efecto": "activar",   "valor": 1,   "duracion": 0 },
+    { "id": "fragmento", "tipo": "mapa",    "puntos": 50, "efecto": "ninguno",   "valor": 0,   "duracion": 0 }
+  ],
+
+  "peligros": [
+    { "id": "murcielago", "tipo": "enemigo",   "dano": 1, "velocidad": 2 },
+    { "id": "pinchos",    "tipo": "obstaculo", "dano": 1, "velocidad": 0 },
+    { "id": "sierra",     "tipo": "obstaculo", "dano": 1, "velocidad": 0 },
+    { "id": "escarabajo", "tipo": "enemigo",   "dano": 1, "velocidad": 3 }
+  ],
+
+  "jefe": {
+    "vida": 100,
+    "umbralesFase": [100, 66, 33],
+    "velocidadPorFase": [2, 3, 4],
+    "danoPorFase": [1, 1, 2],
+    "puntosVictoria": 500,
+    "tiempoEntreAtaques": 2.0,
+    "distanciaAtaque": 3.5
+  },
+
+  "niveles": {
+    "escenaMenu": "Menu",
+    "escenaMina": "Mina",
+    "escenaCriatura": "Criatura"
+  }
+}
