@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro; // <-- Añadido para TextMeshPro
 
 // =====================================================================
 // MenuController.cs  —  Parte 2: escena Menú
@@ -19,9 +20,10 @@ using UnityEngine.UI;
 public class MenuController : MonoBehaviour
 {
     [Header("Textos")]
-    [SerializeField] private Text textoTitulo;
-    [SerializeField] private Text textoSaludo;
-    [SerializeField] private Text textoError;
+    // Cambiados de 'Text' a 'TextMeshProUGUI'
+    [SerializeField] private TextMeshProUGUI textoTitulo;
+    [SerializeField] private TextMeshProUGUI textoSaludo;
+    [SerializeField] private TextMeshProUGUI textoError;
 
     [Header("Botones")]
     [SerializeField] private Button botonJugar;
