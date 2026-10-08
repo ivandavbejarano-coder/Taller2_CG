@@ -157,16 +157,22 @@ public class PlayerController : MonoBehaviour
 
         if (sprite != null) sprite.flipX = direccion < 0;
 
-        // Salto: SOLO si el raycast hacia abajo detecta suelo.
-        // El enunciado es explícito: "No basta con una bandera por colisión".
-        if (Input.GetButtonDown("Jump") && enSuelo)
+        // Salto unificado: Lee la tecla W o el botón Jump, exigiendo que esté en el suelo y no saltando
+        //if ((Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W)) && enSuelo && !saltando)
+        //    Saltar();   
+
+        //if (Input.GetKeyDown(KeyCode.E))
+        //    Interactuar();
+
+        //if (Input.GetKeyDown(KeyCode.J))
+        //    Atacar();
+        // Salto de prueba: Quitamos el 'enSuelo' para ver si la W responde obligatoriamente
+
+        if ((Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W)) && !saltando)
+        {
+            Debug.Log("¡El salto se ejecutó a la fuerza!");
             Saltar();
-
-        if (Input.GetKeyDown(KeyCode.E))
-            Interactuar();
-
-        if (Input.GetKeyDown(KeyCode.J))
-            Atacar();
+        }
     }
 
     private void Saltar()
@@ -175,6 +181,7 @@ public class PlayerController : MonoBehaviour
         v.y = saltoActual;
         rb.linearVelocity = v;
 
+        enSuelo = false;
         saltando = true;
         if (anim != null) anim.SetBool(paramSaltando, true);
     }
@@ -191,14 +198,13 @@ public class PlayerController : MonoBehaviour
 
         enSuelo = hit.collider != null;
 
-        // Si ya tocó piso, se acabó el estado de salto.
-        if (enSuelo && saltando)
+        // Si ya tocó piso, apagamos el estado de salto inmediatamente
+        if (enSuelo)
         {
             saltando = false;
             if (anim != null) anim.SetBool(paramSaltando, false);
         }
 
-        // Dibuja el rayo en el Editor para la sustentación (verde = suelo).
         Debug.DrawRay(origen, Vector2.down * distanciaSuelo, enSuelo ? Color.green : Color.red);
     }
 
