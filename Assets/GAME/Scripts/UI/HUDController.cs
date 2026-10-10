@@ -155,8 +155,22 @@ public class HUDController : MonoBehaviour
     public void MostrarMensaje(string mensaje, float segundos = 0f)
     {
         if (textoMensaje == null) return;
+
+        textoMensaje.gameObject.SetActive(true); // Asegura que el GameObject esté encendido
         textoMensaje.text = mensaje;
         finMensaje = Time.time + (segundos > 0f ? segundos : duracionMensaje);
+    }
+
+    /// Método para recibir eventos directo desde GameManager o Elevador
+    public void ProcesarEvento(string nombreEvento)
+    {
+        if (string.IsNullOrEmpty(nombreEvento)) return;
+
+        if (nombreEvento.StartsWith("mostrarFaltantes:"))
+        {
+            string faltantes = nombreEvento.Substring("mostrarFaltantes:".Length);
+            MostrarMensaje("Te falta: " + faltantes);
+        }
     }
 
     private void ActualizarMensaje()
@@ -177,16 +191,12 @@ public class HUDController : MonoBehaviour
     {
         if (rellenoBarraJefe == null) return;
 
-        // Se cachea para no buscar en toda la escena cada frame. Mientras el jefe
-        // no exista (escena Mina) la búsqueda se repite, pero es barata y devuelve
-        // null; en cuanto aparece, queda guardado.
-        if (jefe == null) jefe = FindFirstObjectByType<Boss>();
+        if (jefe == null) jefe = Object.FindFirstObjectByType<Boss>();
         if (jefe == null) return;
 
         if (raizBarraJefe != null && !raizBarraJefe.activeSelf && jefe.CombateIniciado)
             raizBarraJefe.SetActive(true);
 
-        // Image.type debe estar en "Filled" para que fillAmount funcione.
         rellenoBarraJefe.fillAmount = jefe.VidaProporcion;   // 0..1
 
         if (textoBarraJefe != null)
@@ -211,14 +221,12 @@ public class HUDController : MonoBehaviour
         sb.AppendLine("INVENTARIO (" + gm.Inventario.Count + " objetos)");
         sb.AppendLine();
 
-        // Resumen por tipo (sale del Dictionary del GameManager).
         foreach (System.Collections.Generic.KeyValuePair<string, int> par in gm.CantidadPorTipo)
             sb.AppendLine(par.Key + ": " + par.Value);
 
         sb.AppendLine();
         sb.AppendLine("Detalle (List):");
 
-        // Se muestran los últimos 12 para que quepan en pantalla.
         int inicio = Mathf.Max(0, gm.Inventario.Count - 12);
         for (int i = inicio; i < gm.Inventario.Count; i++)
         {
