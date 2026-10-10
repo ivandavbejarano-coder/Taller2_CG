@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8638514507849781300}
@@ -55,7 +55,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 3
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 46a8a9e411ed0b047a4110edff8358de, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -76,7 +76,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 46a8a9e411ed0b047a4110edff8358de, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -100,8 +100,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
+  m_Offset: {x: -0.0035138845, y: 0.0011713982}
+  m_Size: {x: 0.21654363, y: 0.2808176}
   m_Direction: 0
 --- !u!114 &401603259189467002
 MonoBehaviour:
@@ -140,6 +140,7 @@ MonoBehaviour:
   controlador: {fileID: 401603259189467002}
   puntoSpawn: {fileID: 0}
   intervaloParpadeo: 0.1
+  gameOverManager: {fileID: 0}
 --- !u!82 &3849276372432206567
 AudioSource:
   m_ObjectHideFlags: 0
