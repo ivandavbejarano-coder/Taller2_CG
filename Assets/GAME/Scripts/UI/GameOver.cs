@@ -18,29 +18,43 @@ public class GameOverManager : MonoBehaviour
         if (panelGameOver != null)
         {
             panelGameOver.SetActive(true);
-            Time.timeScale = 0f; // Congela el juego
+            Time.timeScale = 0f;
 
-            // LIBERA EL MOUSE PARA INTERACTUAR CON LA UI
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
 
-            Debug.Log("[GameOverManager] ¡Auch! Ya no te quedan vidas.");
-        }
-        else
-        {
-            Debug.LogError("[GameOverManager] Hay un error, lo siento.");
+            Debug.Log("[GameOverManager] Panel de Game Over activado.");
         }
     }
 
     public void ReiniciarNivel()
     {
-        Time.timeScale = 1f; // Restablece la velocidad del tiempo antes de recargar
+        Time.timeScale = 1f; // Reanuda la escala de tiempo de Unity
+
+        if (GameManager.Instance != null)
+        {
+            string escenaActual = SceneManager.GetActiveScene().name;
+
+            // 1. Limpia los datos de la partida
+            GameManager.Instance.ReiniciarPartida();
+
+            // 2. Reactiva el cronómetro y la escena activa
+            GameManager.Instance.IniciarCronometro(escenaActual);
+        }
+
+        // 3. Recarga la escena limpia
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void IrAlMenu()
     {
         Time.timeScale = 1f;
+
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.ReiniciarPartida();
+        }
+
         SceneManager.LoadScene("Menu");
     }
 
