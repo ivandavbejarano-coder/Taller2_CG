@@ -27,14 +27,14 @@ public class Recolectable : MonoBehaviour
     [Tooltip("Sprite distinto según el recurso, si quieres cambiarlo al vuelo.")]
     [SerializeField] private bool destruirAlRecoger = true;
 
-    private AudioSource audio;
+    private AudioSource audioSource;
     private bool yaRecogido;
 
     public string IdRecurso { get { return idRecurso; } }
 
     private void Awake()
     {
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     /// Cambia el recurso en tiempo de ejecución (útil si se reutiliza el prefab).
@@ -67,7 +67,7 @@ public class Recolectable : MonoBehaviour
         Debug.Log("[Recolectable] " + recurso.id + " (tipo " + recurso.tipo +
                   ", +" + recurso.puntos + " pts, efecto " + recurso.efecto + ")");
 
-        if (audio != null) audio.Play();
+        if (audioSource != null) audioSource.Play();
 
         if (destruirAlRecoger) Destroy(gameObject);
         else

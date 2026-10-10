@@ -157,22 +157,17 @@ public class PlayerController : MonoBehaviour
 
         if (sprite != null) sprite.flipX = direccion < 0;
 
-        // Salto unificado: Lee la tecla W o el botón Jump, exigiendo que esté en el suelo y no saltando
-        //if ((Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W)) && enSuelo && !saltando)
-        //    Saltar();   
-
-        //if (Input.GetKeyDown(KeyCode.E))
-        //    Interactuar();
-
-        //if (Input.GetKeyDown(KeyCode.J))
-        //    Atacar();
-        // Salto de prueba: Quitamos el 'enSuelo' para ver si la W responde obligatoriamente
-
-        if ((Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W)) && !saltando)
-        {
-            Debug.Log("¡El salto se ejecutó a la fuerza!");
+        // Salto real: exige que esté en el suelo (validado por el raycast) y no saltando
+        if ((Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W)) && enSuelo && !saltando)
             Saltar();
-        }
+
+        // Interacción frontal con el Raycast2D
+        if (Input.GetKeyDown(KeyCode.E))
+            Interactuar();
+
+        // Ataque al jefe
+        if (Input.GetKeyDown(KeyCode.J))
+            Atacar();
     }
 
     private void Saltar()

@@ -2,8 +2,8 @@
   "jugador": {
     "nombre": "Minero",
     "vidas": 3,
-    "velocidad": 2,
-    "fuerzaSalto": 3,
+    "velocidad": 7,
+    "fuerzaSalto": 20,
     "invulnerabilidad": 1.5,
     "danoJugador": 10,
     "cooldownAtaque": 0.6

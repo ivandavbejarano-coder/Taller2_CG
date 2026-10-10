@@ -28,13 +28,13 @@ public class Checkpoint : MonoBehaviour
     [SerializeField] private Color colorEncendido = Color.green;
 
     private bool activado;
-    private AudioSource audio;
+    private AudioSource audioSource;
 
     public bool Activado { get { return activado; } }
 
     private void Awake()
     {
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
         if (sprite == null) sprite = GetComponent<SpriteRenderer>();
     }
 
@@ -60,7 +60,7 @@ public class Checkpoint : MonoBehaviour
             if (spriteActivado != null) sprite.sprite = spriteActivado;
             sprite.color = colorEncendido;
         }
-        if (audio != null) audio.Play();
+        if (audioSource != null) audioSource.Play();
 
         Debug.Log("[Checkpoint] activado en " + gm.EscenaActual +
                   " (hay " + gm.Checkpoints.Count + " en el Stack)");
