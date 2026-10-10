@@ -9,11 +9,14 @@ EditorBuildSettings:
     path: Assets/GAME/Scenes/Menu.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/GAME/Scenes/Mina.unity
+    path: Assets/GAME/Scenes/Mina1.unity
     guid: b390ab308c5e54d48a80e81880971d52
   - enabled: 1
     path: Assets/GAME/Scenes/Criatura.unity
     guid: 51a200dc29b4de44b9934fab93acc5f0
+  - enabled: 1
+    path: Assets/GAME/Scenes/Mina.unity
+    guid: 1f250ae1d62130245b6eefcdf8da618d
   m_configObjects:
     com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
