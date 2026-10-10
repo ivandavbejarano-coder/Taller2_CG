@@ -1,0 +1,512 @@
+fileFormatVersion: 2
+guid: cfe9e45205639404aa2c03111f33eec5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7535724300435672817
+    second: ant_walk_cycle_transparent_0
+  - first:
+      213: 827186582073980823
+    second: ant_walk_cycle_transparent_1
+  - first:
+      213: 4936190673630653378
+    second: ant_walk_cycle_transparent_2
+  - first:
+      213: 6157120487907917522
+    second: ant_walk_cycle_transparent_3
+  - first:
+      213: 2627529807700724285
+    second: ant_walk_cycle_transparent_4
+  - first:
+      213: -4322072541389006235
+    second: ant_walk_cycle_transparent_5
+  - first:
+      213: 4770950233236971978
+    second: ant_walk_cycle_transparent_6
+  - first:
+      213: 6085812093723886965
+    second: ant_walk_cycle_transparent_7
+  - first:
+      213: -3824851176228169100
+    second: ant_walk_cycle_transparent_8
+  - first:
+      213: 8804484891127718365
+    second: ant_walk_cycle_transparent_9
+  - first:
+      213: 896890108711508657
+    second: ant_walk_cycle_transparent_10
+  - first:
+      213: 6867418245649571975
+    second: ant_walk_cycle_transparent_11
+  - first:
+      213: -5870294446258319353
+    second: ant_walk_cycle_transparent_12
+  - first:
+      213: -5245048478523634605
+    second: ant_walk_cycle_transparent_13
+  - first:
+      213: -853324485224090660
+    second: ant_walk_cycle_transparent_14
+  - first:
+      213: -4532321081605256235
+    second: ant_walk_cycle_transparent_15
+  - first:
+      213: -983153602805873026
+    second: ant_walk_cycle_transparent_16
+  - first:
+      213: -723841379571980037
+    second: ant_walk_cycle_transparent_17
+  - first:
+      213: -7304754164298880192
+    second: ant_walk_cycle_transparent_18
+  - first:
+      213: -5482095494497493336
+    second: ant_walk_cycle_transparent_19
+  - first:
+      213: 8301403986489314075
+    second: ant_walk_cycle_transparent_20
+  - first:
+      213: -1022210254436293971
+    second: ant_walk_cycle_transparent_21
+  - first:
+      213: 3393635235018034975
+    second: ant_walk_cycle_transparent_22
+  - first:
+      213: -1076665201443788039
+    second: ant_walk_cycle_transparent_23
+  - first:
+      213: -855676710746161191
+    second: ant_walk_cycle_transparent_24
+  - first:
+      213: 2014386965006699269
+    second: ant_walk_cycle_transparent_25
+  - first:
+      213: -4324743456150913651
+    second: ant_walk_cycle_transparent_26
+  - first:
+      213: 1101387391618020975
+    second: ant_walk_cycle_transparent_27
+  - first:
+      213: -7491056110005789903
+    second: ant_walk_cycle_transparent_28
+  - first:
+      213: 462199483759899258
+    second: ant_walk_cycle_transparent_29
+  - first:
+      213: -1271735761314364556
+    second: ant_walk_cycle_transparent_30
+  - first:
+      213: -5889187119957943972
+    second: ant_walk_cycle_transparent_31
+  - first:
+      213: 4865802139101758918
+    second: ant_walk_cycle_transparent_32
+  - first:
+      213: -5258628724088414708
+    second: ant_walk_cycle_transparent_33
+  - first:
+      213: -1427043575115755566
+    second: ant_walk_cycle_transparent_34
+  - first:
+      213: -4104401048259380994
+    second: ant_walk_cycle_transparent_35
+  - first:
+      213: 3419712229467149255
+    second: ant_walk_cycle_transparent_36
+  - first:
+      213: -7807776551998187833
+    second: ant_walk_cycle_transparent_37
+  - first:
+      213: 263890602057431310
+    second: ant_walk_cycle_transparent_38
+  - first:
+      213: -8047204459299216042
+    second: ant_walk_cycle_transparent_39
+  - first:
+      213: 7710261819911815964
+    second: ant_walk_cycle_transparent_40
+  - first:
+      213: 2484621589755366240
+    second: ant_walk_cycle_transparent_41
+  - first:
+      213: 7852456680499680310
+    second: ant_walk_cycle_transparent_42
+  - first:
+      213: -8706241626104251170
+    second: ant_walk_cycle_transparent_43
+  - first:
+      213: 669302930241293905
+    second: ant_walk_cycle_transparent_44
+  - first:
+      213: 5077056898412482163
+    second: ant_walk_cycle_transparent_45
+  - first:
+      213: -2653985658394792178
+    second: ant_walk_cycle_transparent_46
+  - first:
+      213: 1806249952899246265
+    second: ant_walk_cycle_transparent_47
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ant_walk_cycle_transparent_24
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 140
+        width: 229
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9df766da0960024f0800000000000000
+      internalID: -855676710746161191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ant_walk_cycle_transparent_25
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 136
+        width: 219
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50bc661a54a84fb10800000000000000
+      internalID: 2014386965006699269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ant_walk_cycle_transparent_26
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 133
+        width: 221
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8dfd677dbc6bf3c0800000000000000
+      internalID: -4324743456150913651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ant_walk_cycle_transparent_27
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 131
+        width: 219
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f667c7d4ff9e84f00800000000000000
+      internalID: 1101387391618020975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ant_walk_cycle_transparent_28
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 128
+        width: 221
+        height: 139
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13bd592482c6a0890800000000000000
+      internalID: -7491056110005789903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ant_walk_cycle_transparent_29
+      rect:
+        serializedVersion: 2
+        x: 1382
+        y: 127
+        width: 221
+        height: 144
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a72b0ec4bff0a6600800000000000000
+      internalID: 462199483759899258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ant_walk_cycle_transparent_30
+      rect:
+        serializedVersion: 2
+        x: 1646
+        y: 125
+        width: 217
+        height: 137
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47342b22013e95ee0800000000000000
+      internalID: -1271735761314364556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ant_walk_cycle_transparent_31
+      rect:
+        serializedVersion: 2
+        x: 1904
+        y: 125
+        width: 221
+        height: 136
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c59d9134487654ea0800000000000000
+      internalID: -5889187119957943972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: fdbb2d188b47ddc468d78ef466e2fb58
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ant_walk_cycle_transparent_0: 7535724300435672817
+      ant_walk_cycle_transparent_1: 827186582073980823
+      ant_walk_cycle_transparent_10: 896890108711508657
+      ant_walk_cycle_transparent_11: 6867418245649571975
+      ant_walk_cycle_transparent_12: -5870294446258319353
+      ant_walk_cycle_transparent_13: -5245048478523634605
+      ant_walk_cycle_transparent_14: -853324485224090660
+      ant_walk_cycle_transparent_15: -4532321081605256235
+      ant_walk_cycle_transparent_16: -983153602805873026
+      ant_walk_cycle_transparent_17: -723841379571980037
+      ant_walk_cycle_transparent_18: -7304754164298880192
+      ant_walk_cycle_transparent_19: -5482095494497493336
+      ant_walk_cycle_transparent_2: 4936190673630653378
+      ant_walk_cycle_transparent_20: 8301403986489314075
+      ant_walk_cycle_transparent_21: -1022210254436293971
+      ant_walk_cycle_transparent_22: 3393635235018034975
+      ant_walk_cycle_transparent_23: -1076665201443788039
+      ant_walk_cycle_transparent_24: -855676710746161191
+      ant_walk_cycle_transparent_25: 2014386965006699269
+      ant_walk_cycle_transparent_26: -4324743456150913651
+      ant_walk_cycle_transparent_27: 1101387391618020975
+      ant_walk_cycle_transparent_28: -7491056110005789903
+      ant_walk_cycle_transparent_29: 462199483759899258
+      ant_walk_cycle_transparent_3: 6157120487907917522
+      ant_walk_cycle_transparent_30: -1271735761314364556
+      ant_walk_cycle_transparent_31: -5889187119957943972
+      ant_walk_cycle_transparent_32: 4865802139101758918
+      ant_walk_cycle_transparent_33: -5258628724088414708
+      ant_walk_cycle_transparent_34: -1427043575115755566
+      ant_walk_cycle_transparent_35: -4104401048259380994
+      ant_walk_cycle_transparent_36: 3419712229467149255
+      ant_walk_cycle_transparent_37: -7807776551998187833
+      ant_walk_cycle_transparent_38: 263890602057431310
+      ant_walk_cycle_transparent_39: -8047204459299216042
+      ant_walk_cycle_transparent_4: 2627529807700724285
+      ant_walk_cycle_transparent_40: 7710261819911815964
+      ant_walk_cycle_transparent_41: 2484621589755366240
+      ant_walk_cycle_transparent_42: 7852456680499680310
+      ant_walk_cycle_transparent_43: -8706241626104251170
+      ant_walk_cycle_transparent_44: 669302930241293905
+      ant_walk_cycle_transparent_45: 5077056898412482163
+      ant_walk_cycle_transparent_46: -2653985658394792178
+      ant_walk_cycle_transparent_47: 1806249952899246265
+      ant_walk_cycle_transparent_48: 1380141877
+      ant_walk_cycle_transparent_5: -4322072541389006235
+      ant_walk_cycle_transparent_6: 4770950233236971978
+      ant_walk_cycle_transparent_7: 6085812093723886965
+      ant_walk_cycle_transparent_8: -3824851176228169100
+      ant_walk_cycle_transparent_9: 8804484891127718365
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

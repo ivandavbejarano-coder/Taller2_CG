@@ -1,0 +1,535 @@
+fileFormatVersion: 2
+guid: d806f3d6b61d09f428f08dc96b5c29c3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2412993827684664342
+    second: "D\xFAo de criaturas pixeladas contrastantes_0"
+  - first:
+      213: -2142302897782120766
+    second: "D\xFAo de criaturas pixeladas contrastantes_1"
+  - first:
+      213: -4705676397397213135
+    second: "D\xFAo de criaturas pixeladas contrastantes_2"
+  - first:
+      213: 6440642650498402010
+    second: "D\xFAo de criaturas pixeladas contrastantes_3"
+  - first:
+      213: -2208920415009355714
+    second: "D\xFAo de criaturas pixeladas contrastantes_4"
+  - first:
+      213: -8154351137770057945
+    second: "D\xFAo de criaturas pixeladas contrastantes_5"
+  - first:
+      213: -3582922633747703205
+    second: "D\xFAo de criaturas pixeladas contrastantes_6"
+  - first:
+      213: -1497090787087709487
+    second: "D\xFAo de criaturas pixeladas contrastantes_7"
+  - first:
+      213: -123280396552566839
+    second: "D\xFAo de criaturas pixeladas contrastantes_8"
+  - first:
+      213: 1350441553002192199
+    second: "D\xFAo de criaturas pixeladas contrastantes_9"
+  - first:
+      213: 8238359426550097492
+    second: "D\xFAo de criaturas pixeladas contrastantes_10"
+  - first:
+      213: 2440352453228740140
+    second: "D\xFAo de criaturas pixeladas contrastantes_11"
+  - first:
+      213: -1557224390466643299
+    second: "D\xFAo de criaturas pixeladas contrastantes_12"
+  - first:
+      213: 4331403921792234276
+    second: "D\xFAo de criaturas pixeladas contrastantes_13"
+  - first:
+      213: 1521769157407428471
+    second: "D\xFAo de criaturas pixeladas contrastantes_14"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "D\xFAo de criaturas pixeladas contrastantes_0"
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 146
+        width: 797
+        height: 522
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aeb35a7f5e2538ed0800000000000000
+      internalID: -2412993827684664342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "D\xFAo de criaturas pixeladas contrastantes_1"
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 148
+        width: 759
+        height: 543
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ce18686dd20542e0800000000000000
+      internalID: -2142302897782120766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "D\xFAo de criaturas pixeladas contrastantes_2"
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 733
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13003319f3412beb0800000000000000
+      internalID: -4705676397397213135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "D\xFAo de criaturas pixeladas contrastantes_3"
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 716
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad6003cdd52c16950800000000000000
+      internalID: 6440642650498402010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "D\xFAo de criaturas pixeladas contrastantes_4"
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 683
+        width: 39
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e38424ef5965851e0800000000000000
+      internalID: -2208920415009355714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "D\xFAo de criaturas pixeladas contrastantes_5"
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 702
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72fc96308dce5de80800000000000000
+      internalID: -8154351137770057945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "D\xFAo de criaturas pixeladas contrastantes_6"
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 590
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5ad2c509d6e64ec0800000000000000
+      internalID: -3582922633747703205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "D\xFAo de criaturas pixeladas contrastantes_7"
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 582
+        width: 4
+        height: 58
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1da802f6cd3493be0800000000000000
+      internalID: -1497090787087709487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "D\xFAo de criaturas pixeladas contrastantes_8"
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 557
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c707bbe1250a4ef0800000000000000
+      internalID: -123280396552566839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "D\xFAo de criaturas pixeladas contrastantes_9"
+      rect:
+        serializedVersion: 2
+        x: 1693
+        y: 278
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74d5f90007bbdb210800000000000000
+      internalID: 1350441553002192199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "D\xFAo de criaturas pixeladas contrastantes_10"
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 242
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 456628fef38845270800000000000000
+      internalID: 8238359426550097492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "D\xFAo de criaturas pixeladas contrastantes_11"
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 236
+        width: 5
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2eb37d60afddd120800000000000000
+      internalID: 2440352453228740140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "D\xFAo de criaturas pixeladas contrastantes_12"
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 129
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9a59aadaa0a36ae0800000000000000
+      internalID: -1557224390466643299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "D\xFAo de criaturas pixeladas contrastantes_13"
+      rect:
+        serializedVersion: 2
+        x: 1016
+        y: 136
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 423f8290bec3c1c30800000000000000
+      internalID: 4331403921792234276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "D\xFAo de criaturas pixeladas contrastantes_14"
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 115
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77f4a696cf86e1510800000000000000
+      internalID: 1521769157407428471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 95315940faff588498f2dc3a4b2c850f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":1,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      "D\xFAo de criaturas pixeladas contrastantes_0": -2412993827684664342
+      "D\xFAo de criaturas pixeladas contrastantes_1": -2142302897782120766
+      "D\xFAo de criaturas pixeladas contrastantes_10": 8238359426550097492
+      "D\xFAo de criaturas pixeladas contrastantes_11": 2440352453228740140
+      "D\xFAo de criaturas pixeladas contrastantes_12": -1557224390466643299
+      "D\xFAo de criaturas pixeladas contrastantes_13": 4331403921792234276
+      "D\xFAo de criaturas pixeladas contrastantes_14": 1521769157407428471
+      "D\xFAo de criaturas pixeladas contrastantes_2": -4705676397397213135
+      "D\xFAo de criaturas pixeladas contrastantes_3": 6440642650498402010
+      "D\xFAo de criaturas pixeladas contrastantes_4": -2208920415009355714
+      "D\xFAo de criaturas pixeladas contrastantes_5": -8154351137770057945
+      "D\xFAo de criaturas pixeladas contrastantes_6": -3582922633747703205
+      "D\xFAo de criaturas pixeladas contrastantes_7": -1497090787087709487
+      "D\xFAo de criaturas pixeladas contrastantes_8": -123280396552566839
+      "D\xFAo de criaturas pixeladas contrastantes_9": 1350441553002192199
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

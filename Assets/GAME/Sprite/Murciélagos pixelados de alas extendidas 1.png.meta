@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 2a0a8a1ec7f3c4a4cafffbd29a84401e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7443479266165566329
+    second: "Murci\xE9lagos pixelados de alas extendidas 1_0"
+  - first:
+      213: -702170762399626092
+    second: "Murci\xE9lagos pixelados de alas extendidas 1_1"
+  - first:
+      213: 5522594269574726436
+    second: "Murci\xE9lagos pixelados de alas extendidas 1_2"
+  - first:
+      213: -5848701486955248832
+    second: "Murci\xE9lagos pixelados de alas extendidas 1_3"
+  - first:
+      213: -6742894346976031776
+    second: "Murci\xE9lagos pixelados de alas extendidas 1_4"
+  - first:
+      213: -6359701779730091870
+    second: "Murci\xE9lagos pixelados de alas extendidas 1_5"
+  - first:
+      213: -2366514464131237904
+    second: "Murci\xE9lagos pixelados de alas extendidas 1_6"
+  - first:
+      213: -4969555893981016898
+    second: "Murci\xE9lagos pixelados de alas extendidas 1_7"
+  - first:
+      213: 6058742162502657936
+    second: "Murci\xE9lagos pixelados de alas extendidas 1_8"
+  - first:
+      213: 4135440078694704586
+    second: "Murci\xE9lagos pixelados de alas extendidas 1_9"
+  - first:
+      213: 5270255823987802472
+    second: "Murci\xE9lagos pixelados de alas extendidas 1_10"
+  - first:
+      213: 5449121511506008176
+    second: "Murci\xE9lagos pixelados de alas extendidas 1_11"
+  - first:
+      213: -6371244545900906198
+    second: "Murci\xE9lagos pixelados de alas extendidas 1_12"
+  - first:
+      213: -866664672631561587
+    second: "Murci\xE9lagos pixelados de alas extendidas 1_13"
+  - first:
+      213: 8043026881298776627
+    second: "Murci\xE9lagos pixelados de alas extendidas 1_14"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: "Murci\xE9lagos pixelados de alas extendidas 1_0"
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 82
+        width: 1774
+        height: 721
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97ba8c094fc8c4760800000000000000
+      internalID: 7443479266165566329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Murci\xE9lagos pixelados de alas extendidas 1_1"
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 178
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49c418f69636146f0800000000000000
+      internalID: -702170762399626092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Murci\xE9lagos pixelados de alas extendidas 1_2"
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 110
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4230c9c6a3234ac40800000000000000
+      internalID: 5522594269574726436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Murci\xE9lagos pixelados de alas extendidas 1_3"
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 160
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 043cbb04cfc35dea0800000000000000
+      internalID: -5848701486955248832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Murci\xE9lagos pixelados de alas extendidas 1_4"
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 209
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0eb018a115d6c62a0800000000000000
+      internalID: -6742894346976031776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Murci\xE9lagos pixelados de alas extendidas 1_5"
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 206
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a0b4cd2deccdb7a0800000000000000
+      internalID: -6359701779730091870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Murci\xE9lagos pixelados de alas extendidas 1_6"
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 192
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f732a912a3782fd0800000000000000
+      internalID: -2366514464131237904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Murci\xE9lagos pixelados de alas extendidas 1_7"
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 128
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebc00d78e37980bb0800000000000000
+      internalID: -4969555893981016898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Murci\xE9lagos pixelados de alas extendidas 1_8"
+      rect:
+        serializedVersion: 2
+        x: 885
+        y: 195
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09727ad65e9f41450800000000000000
+      internalID: 6058742162502657936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Murci\xE9lagos pixelados de alas extendidas 1_9"
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 201
+        width: 7
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac5e28057d8046930800000000000000
+      internalID: 4135440078694704586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Murci\xE9lagos pixelados de alas extendidas 1_10"
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 192
+        width: 14
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8610a38bfb5b32940800000000000000
+      internalID: 5270255823987802472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Murci\xE9lagos pixelados de alas extendidas 1_11"
+      rect:
+        serializedVersion: 2
+        x: 1072
+        y: 192
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 078514fd42b2f9b40800000000000000
+      internalID: 5449121511506008176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Murci\xE9lagos pixelados de alas extendidas 1_12"
+      rect:
+        serializedVersion: 2
+        x: 1447
+        y: 180
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a297e6087dac497a0800000000000000
+      internalID: -6371244545900906198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Murci\xE9lagos pixelados de alas extendidas 1_13"
+      rect:
+        serializedVersion: 2
+        x: 1615
+        y: 179
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d826a60721df8f3f0800000000000000
+      internalID: -866664672631561587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: "Murci\xE9lagos pixelados de alas extendidas 1_14"
+      rect:
+        serializedVersion: 2
+        x: 1715
+        y: 199
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3324bb2b5529e9f60800000000000000
+      internalID: 8043026881298776627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      "Murci\xE9lagos pixelados de alas extendidas 1_0": 7443479266165566329
+      "Murci\xE9lagos pixelados de alas extendidas 1_1": -702170762399626092
+      "Murci\xE9lagos pixelados de alas extendidas 1_10": 5270255823987802472
+      "Murci\xE9lagos pixelados de alas extendidas 1_11": 5449121511506008176
+      "Murci\xE9lagos pixelados de alas extendidas 1_12": -6371244545900906198
+      "Murci\xE9lagos pixelados de alas extendidas 1_13": -866664672631561587
+      "Murci\xE9lagos pixelados de alas extendidas 1_14": 8043026881298776627
+      "Murci\xE9lagos pixelados de alas extendidas 1_2": 5522594269574726436
+      "Murci\xE9lagos pixelados de alas extendidas 1_3": -5848701486955248832
+      "Murci\xE9lagos pixelados de alas extendidas 1_4": -6742894346976031776
+      "Murci\xE9lagos pixelados de alas extendidas 1_5": -6359701779730091870
+      "Murci\xE9lagos pixelados de alas extendidas 1_6": -2366514464131237904
+      "Murci\xE9lagos pixelados de alas extendidas 1_7": -4969555893981016898
+      "Murci\xE9lagos pixelados de alas extendidas 1_8": 6058742162502657936
+      "Murci\xE9lagos pixelados de alas extendidas 1_9": 4135440078694704586
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
