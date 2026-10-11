@@ -5,15 +5,6 @@ using UnityEngine.UI;
 
 // =====================================================================
 // PanelEstadisticas.cs  —  Parte 5: pantalla final de estadísticas
-// ---------------------------------------------------------------------
-// Es un PANEL dentro de la escena Criatura (no una escena aparte), tal como
-// piden las condiciones generales. Recibe el ResumenPartida ya construido y lo
-// muestra con la tabla mínima del enunciado: tiempo, puntaje, objetos, golpes
-// y muertes por escena y totales; además el nombre y resultado, los recursos
-// por tipo, las muertes por causa, los checkpoints y la ruta del archivo.
-//
-// La distribución visual es libre: aquí se arma en texto plano con StringBuilder
-// porque es lo más sencillo de mantener y de explicar.
 // =====================================================================
 
 public class PanelEstadisticas : MonoBehaviour
@@ -40,8 +31,11 @@ public class PanelEstadisticas : MonoBehaviour
     {
         if (resumen == null) return;
 
+        // 1. Activar la raíz visual del panel
         if (raizPanel != null) raizPanel.SetActive(true);
-        if (Time.timeScale != 1f) Time.timeScale = 1f;
+
+        // 2. Detener completamente la escena (físicas, animaciones y movimiento)
+        Time.timeScale = 0f;
 
         if (textoTitulo != null)
             textoTitulo.text = resumen.jugador + " — " + resumen.resultado.ToUpper();
@@ -141,12 +135,14 @@ public class PanelEstadisticas : MonoBehaviour
 
     private void VolverAlMenu()
     {
-        // Se detiene el cronómetro antes de salir, por si acaso.
+        // Reestablecemos el tiempo a la normalidad al cambiar de escena
+        Time.timeScale = 1f;
+
+        // Se detiene el cronómetro antes de salir
         GameManager gm = GameManager.Instance;
         if (gm != null)
         {
             gm.DetenerCronometro();
-            // El nombre de la escena del menú también viene del config.json.
             if (gm.ConfigValida && !string.IsNullOrEmpty(gm.Config.niveles.escenaMenu))
                 nombreEscenaMenu = gm.Config.niveles.escenaMenu;
         }

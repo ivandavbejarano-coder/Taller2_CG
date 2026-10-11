@@ -30,7 +30,7 @@
   ],
 
   "jefe": {
-    "vida": 100,
+    "vida": 1,
     "umbralesFase": [100, 66, 33],
     "velocidadPorFase": [2, 3, 4],
     "danoPorFase": [1, 1, 2],

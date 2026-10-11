@@ -87,6 +87,7 @@ public class Elevador : MonoBehaviour, IInteractuable
         if (sprite != null)
             sprite.color = cumple ? colorDisponible : colorBloqueado;
 
+        // DEBUG: Muestra el mensaje cuando pasa a estar disponible (color verde)
         if (cumple && !eraCumplidoAnteriormente && !estaActivado)
         {
             Debug.Log("<color=green>[Elevador] Elevador disponible. Presiona 'E' para subir.</color>");

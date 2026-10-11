@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: c0f2735a96fe8694196851dc835a3356
+guid: c3b21c1decfb51041ad5b519a0753d39
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4602796595511023194
-    second: demon_walk_7_0
+      213: -3348312217508167658
+    second: boss Sprite_0
   - first:
-      213: 8670405164954003639
-    second: demon_walk_7_1
+      213: -3779954736931629176
+    second: boss Sprite_1
   - first:
-      213: 7559217512173457489
-    second: demon_walk_7_2
+      213: -1108255041350133628
+    second: boss Sprite_2
   - first:
-      213: -6611510351166212920
-    second: demon_walk_7_3
+      213: -2005326853683221076
+    second: boss Sprite_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -148,13 +148,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: demon_walk_7_0
+      name: boss Sprite_0
       rect:
         serializedVersion: 2
-        x: 105
-        y: 0
-        width: 87
-        height: 89
+        x: 16
+        y: 274
+        width: 195
+        height: 264
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,20 +163,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a56dfc0fd1b60ef30800000000000000
-      internalID: 4602796595511023194
+      spriteID: 610435e37c76881d0800000000000000
+      internalID: -3348312217508167658
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: demon_walk_7_1
+      name: boss Sprite_1
       rect:
         serializedVersion: 2
-        x: 115
-        y: 87
-        width: 8
-        height: 7
+        x: 250
+        y: 274
+        width: 195
+        height: 264
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,20 +185,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7b8abcb4f87735870800000000000000
-      internalID: 8670405164954003639
+      spriteID: 887922e9137ea8bc0800000000000000
+      internalID: -3779954736931629176
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: demon_walk_7_2
+      name: boss Sprite_2
       rect:
         serializedVersion: 2
-        x: 123
-        y: 87
-        width: 10
-        height: 14
+        x: 30
+        y: 9
+        width: 170
+        height: 252
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -207,20 +207,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 150d201e64cb7e860800000000000000
-      internalID: 7559217512173457489
+      spriteID: 4881ac369efae90f0800000000000000
+      internalID: -1108255041350133628
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: demon_walk_7_3
+      name: boss Sprite_3
       rect:
         serializedVersion: 2
-        x: 151
-        y: 70
-        width: 27
-        height: 28
+        x: 261
+        y: 9
+        width: 170
+        height: 249
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -229,8 +229,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8c47be96d523f34a0800000000000000
-      internalID: -6611510351166212920
+      spriteID: cade8abe9d5ab24e0800000000000000
+      internalID: -2005326853683221076
       vertices: []
       indices: 
       edges: []
@@ -249,10 +249,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      demon_walk_7_0: 4602796595511023194
-      demon_walk_7_1: 8670405164954003639
-      demon_walk_7_2: 7559217512173457489
-      demon_walk_7_3: -6611510351166212920
+      boss Sprite_0: -3348312217508167658
+      boss Sprite_1: -3779954736931629176
+      boss Sprite_2: -1108255041350133628
+      boss Sprite_3: -2005326853683221076
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
