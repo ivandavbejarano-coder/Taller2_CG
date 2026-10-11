@@ -1,18 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// =====================================================================
-// CriaturaController.cs  —  Secciones 8.1, 8.2 y Parte 5
-// ---------------------------------------------------------------------
-// Lógica propia de la escena Criatura:
-//   · cronómetro independiente del de la mina
-//   · atiende los eventos de la Queue (spawnEnemigos, iniciarCombate,
-//     cambiarFase, victoria) — aquí se ve claro el uso de la cola
-//   · al llegar "victoria" escribe resumen_partida.json y muestra el panel
-//     de estadísticas
-//
-// NO crea un GameManager (ya existe el de la Mina con DontDestroyOnLoad).
-// =====================================================================
 
 public class CriaturaController : MonoBehaviour
 {
@@ -65,7 +53,6 @@ public class CriaturaController : MonoBehaviour
         }
     }
 
-    /// Atiende UN evento ya sacado de la cola por el GameManager (Dequeue).
     private void AtenderEvento(string evento)
     {
         // ---------- aparición de enemigos en el recorrido ----------
@@ -106,9 +93,6 @@ public class CriaturaController : MonoBehaviour
 
             if (hud != null) hud.MostrarMensaje("¡Criatura derrotada!", 3f);
 
-            // Se construye UNA sola vez y ese mismo objeto es el que se escribe
-            // en disco y el que se muestra en pantalla, para que no pueda haber
-            // diferencias entre lo guardado y lo mostrado.
             ResumenPartida resumen = gm.ConstruirResumen("victoria");
             string ruta = JsonService.GuardarResumen(resumen);
 

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// =====================================================================
-// Elevador.cs  —  Sección 7: puerta o elevador de salida
-// =====================================================================
+
+// Elevador.cs: puerta o elevador de salida
+
 
 [RequireComponent(typeof(Collider2D))]
 public class Elevador : MonoBehaviour, IInteractuable
@@ -23,7 +23,7 @@ public class Elevador : MonoBehaviour, IInteractuable
     private bool jugadorDentro;
     private bool cumple;
     private bool estaActivado;
-    private bool eraCumplidoAnteriormente = false; // Bandera para controlar el debug único
+    private bool eraCumplidoAnteriormente = false;
     private List<string> faltantes = new List<string>();
     private PlayerController jugadorGuardado;
 
@@ -87,7 +87,6 @@ public class Elevador : MonoBehaviour, IInteractuable
         if (sprite != null)
             sprite.color = cumple ? colorDisponible : colorBloqueado;
 
-        // DEBUG: Muestra el mensaje cuando pasa a estar disponible (color verde)
         if (cumple && !eraCumplidoAnteriormente && !estaActivado)
         {
             Debug.Log("<color=green>[Elevador] Elevador disponible. Presiona 'E' para subir.</color>");
@@ -98,8 +97,6 @@ public class Elevador : MonoBehaviour, IInteractuable
             eraCumplidoAnteriormente = false;
         }
     }
-
-    // ---------------- IInteractuable ----------------
 
     public string TextoInteraccion
     {
@@ -135,10 +132,8 @@ public class Elevador : MonoBehaviour, IInteractuable
 
         string faltantesTexto = string.Join(", ", faltantes.ToArray());
 
-        // 1. Registrar evento en el GameManager
         gm.EncolarEvento("mostrarFaltantes:" + faltantesTexto);
 
-        // 2. Notificar directamente al HUDController para mostrar el mensaje en la pantalla
         HUDController hud = Object.FindFirstObjectByType<HUDController>();
         if (hud != null)
         {

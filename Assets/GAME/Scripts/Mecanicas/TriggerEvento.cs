@@ -1,18 +1,8 @@
 using UnityEngine;
 
-// =====================================================================
-// TriggerEvento.cs  —  Sección 8.1: disparador que ENCOLA eventos
-// ---------------------------------------------------------------------
-// Es el ejemplo más claro del uso de la Queue que pide la sección 6.3:
-// "Los disparadores encolan el evento y un procesador los atiende uno a uno
-// (Dequeue); no se ejecutan directamente."
-//
-// Se pone en un punto del recorrido (capa cualquiera, Collider2D en Trigger).
-// Cuando el jugador lo atraviesa, este script NO hace nada por su cuenta:
-// únicamente manda el nombre del evento a la cola del GameManager. Quien
-// reacciona es el controlador de la escena (aparecer enemigos, mostrar un
-// mensaje, iniciar el combate...).
-// =====================================================================
+
+// TriggerEvento.cs
+
 
 [RequireComponent(typeof(Collider2D))]
 public class TriggerEvento : MonoBehaviour
@@ -41,7 +31,7 @@ public class TriggerEvento : MonoBehaviour
         if (gm == null) return;
 
         yaDisparado = true;
-        gm.EncolarEvento(nombreEvento);      // <-- solo encola, no ejecuta
+        gm.EncolarEvento(nombreEvento);      
 
         if (destruirAlActivar) Destroy(gameObject);
     }

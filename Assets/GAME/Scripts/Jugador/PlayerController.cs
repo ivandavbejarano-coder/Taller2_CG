@@ -1,22 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
-// =====================================================================
-// PlayerController.cs  —  Sección 7: movimiento, salto, raycasts y animación
-// ---------------------------------------------------------------------
-// Responsabilidad única: MOVER al personaje y detectar cosas con rayos.
-// La vida, el daño y el respawn los lleva PlayerVida.cs (otro script).
-//
-// Todo lo numérico sale de config.json a través de GameManager.Config:
-// velocidad, fuerzaSalto y los buffs de los recursos. No hay valores
-// del JSON escritos a mano aquí.
-//
-// CONTROLES
-//   A / D  o  ← / →   mover
-//   Espacio o W o ↑   saltar (solo si el raycast de suelo detecta piso)
-//   E                 interactuar con lo que toque el raycast frontal
-//   J                 atacar al jefe (raycast frontal sobre la capa Jefe)
-// =====================================================================
+
+// PlayerController.cs: movimiento, salto, raycasts y animación
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
@@ -41,15 +27,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private string paramVelocidad = "Velocidad";
     [SerializeField] private string paramSaltando = "Saltando";
 
-    // ---------------- Estado interno ----------------
 
     private Rigidbody2D rb;
     private GameManager gmCache;
 
-    /// Acceso perezoso al GameManager. NO se guarda en Awake porque el orden de
-    /// los Awake() entre objetos de una misma escena no está garantizado: si el
-    /// jugador despertara antes que el GameManager, la referencia quedaría null
-    /// para siempre y el personaje no se movería (velocidad base = 0).
     private GameManager Gm
     {
         get
@@ -67,11 +48,11 @@ public class PlayerController : MonoBehaviour
     private float velocidadActual;
     private float saltoActual;
 
-    private int direccion = 1;          // 1 derecha, -1 izquierda
+    private int direccion = 1;         
     private bool enSuelo;
     private bool saltando;
 
-    private IInteractuable objetivo;    // lo que está tocando el rayo frontal
+    private IInteractuable objetivo;    
     private float ultimoAtaque = -99f;
 
     // Para el HUD
@@ -100,8 +81,6 @@ public class PlayerController : MonoBehaviour
         AplicarConfiguracion();
     }
 
-    /// Copia velocidad y fuerza de salto desde config.json.
-    /// Es público para poder volver a llamarlo si se recarga la configuración.
     public void AplicarConfiguracion()
     {
         GameManager gm = Gm;
@@ -117,17 +96,17 @@ public class PlayerController : MonoBehaviour
         velocidadActual = velocidadBase;
         saltoActual = saltoBase;
 
-        // El cuerpo rígido no debe rotearse nunca en un plataformas 2D.
+        
         rb.freezeRotation = true;
     }
 
-    // =====================================================================
+
     // Bucle principal
-    // =====================================================================
+
 
     private void Update()
     {
-        if (vida != null && !vida.Vivo) return;   // muerto: no responde al teclado
+        if (vida != null && !vida.Vivo) return;  
 
         LeerEntrada();
         DetectarSuelo();
@@ -140,8 +119,7 @@ public class PlayerController : MonoBehaviour
     {
         if (vida != null && !vida.Vivo) return;
 
-        // Movimiento horizontal: se fija la componente X y se conserva la Y
-        // (así la gravedad y el salto siguen funcionando igual).
+
         Vector2 v = rb.linearVelocity;
         v.x = direccion * velocidadActual;
         rb.linearVelocity = v;
@@ -149,15 +127,14 @@ public class PlayerController : MonoBehaviour
 
     private void LeerEntrada()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");   // A/D y ←/→
+        float horizontal = Input.GetAxisRaw("Horizontal");  
 
         if (horizontal > 0.1f) { direccion = 1; }
         else if (horizontal < -0.1f) { direccion = -1; }
         else { direccion = 0; }
 
         if (sprite != null) sprite.flipX = direccion < 0;
-
-        // Salto real: exige que esté en el suelo (validado por el raycast) y no saltando
+ 
         if ((Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W)) && enSuelo && !saltando)
             Saltar();
 
@@ -181,9 +158,9 @@ public class PlayerController : MonoBehaviour
         if (anim != null) anim.SetBool(paramSaltando, true);
     }
 
-    // =====================================================================
-    // Raycast2D de suelo (sección 7)
-    // =====================================================================
+   
+    // Raycast2D de suelo 
+ 
 
     private void DetectarSuelo()
     {
@@ -193,7 +170,7 @@ public class PlayerController : MonoBehaviour
 
         enSuelo = hit.collider != null;
 
-        // Si ya tocó piso, apagamos el estado de salto inmediatamente
+        // Si ya tocó piso, se apaga el estado de salto 
         if (enSuelo)
         {
             saltando = false;
@@ -203,9 +180,9 @@ public class PlayerController : MonoBehaviour
         Debug.DrawRay(origen, Vector2.down * distanciaSuelo, enSuelo ? Color.green : Color.red);
     }
 
-    // =====================================================================
-    // Raycast2D frontal (sección 7)
-    // =====================================================================
+    
+    // Raycast2D frontal
+   
 
     private void DetectarFrente()
     {
@@ -218,13 +195,13 @@ public class PlayerController : MonoBehaviour
         if (hit.collider != null)
             objetivo = hit.collider.GetComponent<IInteractuable>();
 
-        // Si el mecanismo ya se usó, no se ofrece la interacción.
+        // Si el mecanismo ya se usó, no se hay más interacción.
         if (objetivo != null && !objetivo.InteraccionDisponible) objetivo = null;
 
         Debug.DrawRay(origen, dir * distanciaFrontal, objetivo != null ? Color.yellow : Color.cyan);
     }
 
-    /// Lo que está tocando el rayo frontal ahora mismo (lo usa Mecanismo/Elevador).
+    
     public IInteractuable ObjetivoFrontal { get { return objetivo; } }
 
     private void Interactuar()
@@ -233,7 +210,6 @@ public class PlayerController : MonoBehaviour
         objetivo.Interactuar(this);
     }
 
-    /// Ataque al jefe: mismo patrón de rayo frontal, pero sobre la capa Jefe.
     private void Atacar()
     {
         GameManager gm = Gm;
@@ -246,9 +222,6 @@ public class PlayerController : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(origen, dir, distanciaFrontal + 0.5f, maskJefe);
         Collider2D encontrado = hit.collider;
 
-        // Respaldo: si en Project Settings ▸ Physics 2D estuviera desactivado
-        // "Queries Hit Triggers", el rayo no vería el collider del jefe. Con un
-        // OverlapCircle en el mismo punto sí lo encuentra.
         if (encontrado == null)
             encontrado = Physics2D.OverlapCircle(origen + (Vector3)(dir * (distanciaFrontal + 0.5f)),
                                                  0.6f, maskJefe);
@@ -262,9 +235,9 @@ public class PlayerController : MonoBehaviour
         jefe.RecibirDanio(gm.Config.jugador.danoJugador);
     }
 
-    // =====================================================================
-    // Animación (sección 7: reposo, correr, saltar)
-    // =====================================================================
+
+    // Animación:  reposo, correr, saltar
+  
 
     private void ActualizarAnimacion()
     {
@@ -272,20 +245,17 @@ public class PlayerController : MonoBehaviour
 
         anim.SetFloat(paramVelocidad, Mathf.Abs(rb.linearVelocity.x));
 
-        // Si el Animator no tiene el parámetro, SetBool no rompe nada, pero
-        // avisamos para que se note en la consola durante el montaje.
+ 
         if (saltando != anim.GetBool(paramSaltando))
             anim.SetBool(paramSaltando, saltando);
     }
 
-    // =====================================================================
-    // Efectos temporales de los recursos (sección 7: función de los recursos)
-    // =====================================================================
+
+    // Efectos temporales de los recursos: función de los coleccionables
+
 
     private Coroutine coroutineBuff;
 
-    /// Aplica el efecto definido en config.json. "valor" es un multiplicador y
-    /// "duracion" los segundos que dura; ambos salen del recurso recogido.
     public void AplicarEfecto(RecursoCfg recurso)
     {
         if (recurso == null) return;
@@ -303,8 +273,6 @@ public class PlayerController : MonoBehaviour
             case "activar":
             case "ninguno":
             default:
-                // "activar" lo consume el Mecanismo al usar la batería;
-                // "ninguno" solo suma puntos. No hay efecto sobre el jugador.
                 break;
         }
     }
@@ -340,15 +308,12 @@ public class PlayerController : MonoBehaviour
 
     private void ActualizarBuff()
     {
-        // Nada que hacer por ahora; se deja el gancho por si el HUD necesita
-        // leer BuffRestante cada frame (ya lo hace directamente).
+
     }
 
-    // =====================================================================
-    // Utilidades que usan otros scripts
-    // =====================================================================
 
-    /// Teletransporte al respawn. Lo llama PlayerVida.
+    // Utilidades que usan otros scripts
+
     public void Reposicionar(Vector3 posicion)
     {
         transform.position = posicion;

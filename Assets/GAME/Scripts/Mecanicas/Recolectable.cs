@@ -1,19 +1,7 @@
 using UnityEngine;
 
-// =====================================================================
-// Recolectable.cs  —  Secciones 7 y 8.1: recolección con Collider2D
-// ---------------------------------------------------------------------
-// Se pone en cada mineral, batería y fragmento de mapa. El Collider2D debe
-// estar marcado como "Is Trigger" y el objeto en la capa Recolectable.
-//
-// Al tocarlo el jugador: se registran sus puntos en el GameManager, se aplica
-// su efecto (si lo tiene) y desaparece de la escena.
-//
-// El tipo, los puntos, el efecto, el valor y la duración NO están aquí: se
-// buscan en config.json por el campo idRecurso. Por eso un mismo prefab sirve
-// para varios recursos, y si el docente cambia los puntos en el JSON el juego
-// cambia sin recompilar.
-// =====================================================================
+
+// Recolectable.cs: recolección con Collider2D
 
 [RequireComponent(typeof(Collider2D))]
 public class Recolectable : MonoBehaviour
@@ -37,7 +25,6 @@ public class Recolectable : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
-    /// Cambia el recurso en tiempo de ejecución (útil si se reutiliza el prefab).
     public void CambiarRecurso(string nuevoId)
     {
         idRecurso = nuevoId;
@@ -51,13 +38,11 @@ public class Recolectable : MonoBehaviour
         GameManager gm = GameManager.Instance;
         if (gm == null || !gm.ConfigValida) return;
 
-        // Se busca la definición en el JSON por su id.
         RecursoCfg recurso = gm.Config.Recurso(idRecurso);
         if (recurso == null) return;
 
         yaRecogido = true;
 
-        // List (inventario) + Dictionary (cantidad por tipo) + puntaje.
         gm.RegistrarRecoleccion(recurso, gm.EscenaActual);
 
         // Efecto sobre el jugador: velocidad, salto, activar o ninguno.

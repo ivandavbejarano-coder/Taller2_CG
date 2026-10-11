@@ -2,18 +2,9 @@ using System;
 using System.IO;
 using UnityEngine;
 
-// =====================================================================
-// JsonService.cs  —  Parte 1: lectura del JSON de entrada y escritura
-//                    del JSON de salida
-// ---------------------------------------------------------------------
-// Es una clase estática porque solo hace conversiones archivo <-> objeto;
-// no necesita ser un MonoBehaviour.
-//
-// El enunciado exige que se lea con File.ReadAllText + JsonUtility desde
-// Application.streamingAssetsPath, y que si el archivo no existe o está
-// dañado el juego NO se cierre: aquí eso se traduce en devolver null y
-// dejar que MenuController muestre el mensaje de error en pantalla.
-// =====================================================================
+
+// JsonService.cs: lectura del JSON de entrada y escritura del JSON de salida
+
 
 public static class JsonService
 {
@@ -38,8 +29,7 @@ public static class JsonService
         get { return Path.Combine(Application.persistentDataPath, NombreResumen); }
     }
 
-    /// Lee y deserializa config.json. Devuelve null si algo falla (nunca lanza
-    /// excepción hacia afuera, para que el juego siga abierto).
+  
     public static ConfigJuego CargarConfig()
     {
         UltimoError = null;
@@ -64,9 +54,6 @@ public static class JsonService
 
             ConfigJuego config = JsonUtility.FromJson<ConfigJuego>(texto);
 
-            // JsonUtility devuelve un objeto con campos en null si el JSON no
-            // tiene esa clave. Validamos lo imprescindible para no morir con un
-            // NullReferenceException más adelante.
             if (config == null)
             {
                 UltimoError = NombreConfig + " no tiene un formato JSON válido.";
@@ -93,8 +80,6 @@ public static class JsonService
         }
     }
 
-    /// Revisa que estén las secciones obligatorias del enunciado.
-    /// Devuelve null si todo está bien, o el nombre de lo que falta.
     private static string Validar(ConfigJuego c)
     {
         if (c.jugador == null) return "falta la sección 'jugador'";
@@ -110,13 +95,11 @@ public static class JsonService
         return null;
     }
 
-    /// Escribe resumen_partida.json en Application.persistentDataPath.
-    /// Devuelve la ruta donde quedó guardado (se muestra en el panel final).
     public static string GuardarResumen(ResumenPartida resumen)
     {
         try
         {
-            // El 'true' de ToJson escribe el archivo indentado, más legible.
+           
             string json = JsonUtility.ToJson(resumen, true);
             File.WriteAllText(RutaResumen, json);
             Debug.Log("Resumen de la partida guardado en: " + RutaResumen);

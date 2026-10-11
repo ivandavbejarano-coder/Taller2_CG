@@ -1,26 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using TMPro; // <-- Añadido para TextMeshPro
+using TMPro; 
 
-// =====================================================================
-// MenuController.cs  —  Parte 2: escena Menú
-// ---------------------------------------------------------------------
-// Responsabilidad única: la lógica de la escena Menu. Como el GameManager se
-// crea en la escena Mina (y no antes), este controlador lee el config.json por
-// su cuenta con JsonService para poder saludar con el nombre del jugador y
-// mostrar el mensaje de error si el archivo no se pudo leer.
-//
-// Cumple los tres puntos de la sección 5:
-//   · Título del juego y saludo con el nombre leído del JSON
-//   · Botón «Jugar» que carga la escena Mina, y botón «Salir»
-//   · Mensaje de error visible si config.json falló (sin cerrar el juego)
-// =====================================================================
+
+// MenuController.cs: escena Menú
+
 
 public class MenuController : MonoBehaviour
 {
     [Header("Textos")]
-    // Cambiados de 'Text' a 'TextMeshProUGUI'
     [SerializeField] private TextMeshProUGUI textoTitulo;
     [SerializeField] private TextMeshProUGUI textoSaludo;
     [SerializeField] private TextMeshProUGUI textoError;
@@ -39,13 +28,10 @@ public class MenuController : MonoBehaviour
     {
         if (textoTitulo != null) textoTitulo.text = tituloDelJuego;
 
-        // Los botones se conectan ANTES de comprobar la configuración: aunque el
-        // JSON esté roto, el botón «Salir» tiene que seguir funcionando.
+        // Los botones se conectan ANTES de comprobar la configuración
         if (botonJugar != null) botonJugar.onClick.AddListener(Jugar);
         if (botonSalir != null) botonSalir.onClick.AddListener(Salir);
 
-        // Se lee en cada entrada al menú: así el docente puede modificar el
-        // archivo y volver a ejecutar sin recompilar.
         config = JsonService.CargarConfig();
 
         if (config == null)
@@ -89,12 +75,7 @@ public class MenuController : MonoBehaviour
     {
         GameManager gm = GameManager.Instance;
 
-        // Si ya existe un GameManager de una partida anterior (porque el jugador
-        // volvió del panel de estadísticas), hay que RECARGAR el config.json antes
-        // de reiniciar: ese objeto conserva la configuración de la partida previa
-        // y, si el docente editó el archivo mientras tanto, los cambios no se
-        // verían. El orden importa: primero se carga y luego se reinicia, porque
-        // ReiniciarPartida() usa las vidas del config recién leído.
+
         if (gm != null)
         {
             gm.CargarConfiguracion();

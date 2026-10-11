@@ -75,15 +75,14 @@ public class GameManager : MonoBehaviour
     /// Reloj de la escena actual. Solo avanza mientras CronometroActivo.
     public float TiempoEscena { get; private set; }
 
-    /// Reloj global de la partida: se usa como "momento" de cada registro.
+    /// Reloj global de la partida: se usa como "momento" de cada registro y acumulador global.
     public float TiempoPartida { get; private set; }
+
+    /// Alias para el HUDController: expone el tiempo total acumulado en la partida.
+    public float TiempoTotal => TiempoPartida;
 
     public bool CronometroActivo { get; private set; }
 
-    // ---------------- Cola de eventos ----------------
-
-    /// Suscríbete desde los controladores de escena para reaccionar a los
-    /// eventos ya procesados: gm.OnEvento += MiManejador;
     public event System.Action<string> OnEvento;
 
     public bool ProcesandoEvento { get; private set; }
@@ -91,14 +90,12 @@ public class GameManager : MonoBehaviour
     /// Pausa entre evento y evento, para que se noten como secuencia.
     [SerializeField] private float retardoEntreEventos = 0.1f;
 
-    // =====================================================================
     // Ciclo de vida
-    // =====================================================================
+    
 
     private void Awake()
     {
-        // Si ya existe un GameManager (porque viene de otra escena con
-        // DontDestroyOnLoad), esta copia sobra y se destruye.
+
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -114,10 +111,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        // El tiempo global de la partida se acumula continuamente
         TiempoPartida += Time.deltaTime;
 
-        // El cronómetro de la escena se detiene al salir (lo hace el
-        // controlador con DetenerCronometro) y su valor se conserva.
+        // El cronómetro individual de la escena
         if (CronometroActivo && !string.IsNullOrEmpty(EscenaActual))
         {
             TiempoEscena += Time.deltaTime;
@@ -132,20 +129,17 @@ public class GameManager : MonoBehaviour
         if (Instance == this) Instance = null;
     }
 
-    // =====================================================================
-    // Configuración
-    // =====================================================================
 
-    /// Lee config.json desde StreamingAssets. Si falla, ConfigValida queda en
-    /// false y el menú muestra el error; el juego NO se cierra.
+    // Configuración
+
+
+    // Lee config.json desde StreamingAssets. 
     public void CargarConfiguracion()
     {
         Config = JsonService.CargarConfig();
         ConfigValida = Config != null;
     }
 
-    /// Deja la partida en cero. Se llama al crear el GameManager y desde el
-    /// botón «Jugar» del menú cuando se vuelve a empezar.
     public void ReiniciarPartida()
     {
         Inventario.Clear();
@@ -165,9 +159,6 @@ public class GameManager : MonoBehaviour
         EscenaActual = null;
         CronometroActivo = false;
 
-        // Las vidas salen SIEMPRE de config.json. Si el archivo no se pudo leer
-        // no se inventa un valor por defecto (el enunciado prohíbe hardcodear
-        // los valores del JSON): se deja en 0 y se avisa.
         if (ConfigValida)
         {
             VidasActuales = Config.jugador.vidas;
@@ -180,19 +171,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // =====================================================================
+  
     // Cronómetros por escena
-    // =====================================================================
+
 
     /// Lo llama el controlador al entrar en su escena.
     public void IniciarCronometro(string escena)
     {
         EscenaActual = escena;
-        TiempoEscena = 0f;
+
+        // Mantiene o restaura el tiempo previamente guardado de esta escena
+        TiempoEscena = Datos(escena).tiempo;
         CronometroActivo = true;
 
         if (!ordenEscenas.Contains(escena)) ordenEscenas.Add(escena);
-        Datos(escena); // crea la entrada si no existe
     }
 
     /// Lo llama el controlador al salir de su escena: el tiempo se conserva.
@@ -219,9 +211,7 @@ public class GameManager : MonoBehaviour
         return d;
     }
 
-    // =====================================================================
-    // Sección 6.2: puntaje
-    // =====================================================================
+    //puntaje
 
     /// Suma puntos. El puntaje se acumula entre escenas y NO se borra al morir.
     public void SumarPuntos(int puntos, string escena)
@@ -230,12 +220,10 @@ public class GameManager : MonoBehaviour
         Datos(escena).puntaje += puntos;
     }
 
-    // =====================================================================
-    // Recolección (List + Dictionary)
-    // =====================================================================
+    // Recolección 
 
-    /// Registra un objeto recogido: entra al inventario (List), suma al
-    /// contador por tipo (Dictionary) y suma sus puntos.
+
+ 
     public void RegistrarRecoleccion(RecursoCfg recurso, string escena)
     {
         if (recurso == null) return;
@@ -253,14 +241,12 @@ public class GameManager : MonoBehaviour
         Datos(escena).objetos++;
     }
 
-    /// Cuántos objetos de un tipo se han recogido en total.
     public int CantidadDe(string tipo)
     {
         int c;
         return CantidadPorTipo.TryGetValue(tipo, out c) ? c : 0;
     }
 
-    /// Texto tipo "Minerales 3/5 · Baterías 1/2 · Mapas 0/3" para el HUD.
     public string ProgresoRequisito()
     {
         if (!ConfigValida) return "";
@@ -268,19 +254,13 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < Config.requisitoJefe.Count; i++)
         {
             RequisitoCfg r = Config.requisitoJefe[i];
-            if (i > 0) texto += "   ";
+            if (i > 0) texto += "    ";
             texto += r.tipo.Substring(0, 1).ToUpper() + r.tipo.Substring(1) + "s "
                      + CantidadDe(r.tipo) + "/" + r.cantidad;
         }
         return texto;
     }
 
-    /// Comprueba si el inventario cumple requisitoJefe.
-    /// En "faltantes" deja la lista de textos "tipo x/y" que aún faltan.
-    ///
-    /// OJO: la lista devuelta se REUTILIZA entre llamadas para no reservar
-    /// memoria cada frame (el Elevador la consulta en Update). Hay que leerla
-    /// antes de la siguiente llamada; no conviene guardarla.
     public bool CumpleRequisitoJefe(out List<string> faltantes)
     {
         faltantesCache.Clear();
@@ -297,17 +277,12 @@ public class GameManager : MonoBehaviour
         return faltantes.Count == 0;
     }
 
-    // =====================================================================
     // Sección 6.1: golpes y muertes (List de registros)
-    // =====================================================================
 
     public void RegistrarGolpe(int dano, string causa, string escena)
     {
         Golpes.Add(new RegistroSuceso("golpe", causa, escena, TiempoPartida));
         Datos(escena).golpes++;
-        // OJO: aquí NO se restan las vidas. Quien lleva la cuenta de corazones
-        // es PlayerVida, que descuenta y luego sincroniza VidasActuales. Si se
-        // restara en los dos sitios, el HUD mostraría menos vidas de las reales.
     }
 
     /// causa: "enemigo", "obstaculo", "jefe" o "caida".
@@ -317,9 +292,8 @@ public class GameManager : MonoBehaviour
         Datos(escena).muertes++;
     }
 
-    // =====================================================================
+   
     // Checkpoints (Stack)
-    // =====================================================================
 
     public void ActivarCheckpoint(Vector3 posicion, string escena)
     {
@@ -327,8 +301,7 @@ public class GameManager : MonoBehaviour
         CheckpointsActivados++;
     }
 
-    /// Punto de respawn: el elemento del tope del Stack que pertenezca a la
-    /// escena actual. Devuelve null si en esta escena aún no hay checkpoint.
+    /// Punto de respawn
     public Vector3? ObtenerRespawn(string escena)
     {
         foreach (CheckpointData c in Checkpoints)
@@ -336,9 +309,9 @@ public class GameManager : MonoBehaviour
         return null;
     }
 
-    // =====================================================================
-    // Cola de eventos (Queue)
-    // =====================================================================
+
+    // Cola de eventos 
+
 
     /// Los disparadores (TriggerEvento, Mecanismo, Elevador, Boss) llaman esto.
     public void EncolarEvento(string nombreEvento)
@@ -353,7 +326,7 @@ public class GameManager : MonoBehaviour
         if (ProcesandoEvento) return;
         if (Eventos.Count == 0) return;
 
-        string evento = Eventos.Dequeue();   // <-- el Dequeue exigido por 6.3
+        string evento = Eventos.Dequeue();
         StartCoroutine(AtenderEvento(evento));
     }
 
@@ -369,14 +342,11 @@ public class GameManager : MonoBehaviour
         }
         finally
         {
-            // Con finally la cola sigue viva aunque un manejador lance excepción.
             ProcesandoEvento = false;
         }
     }
 
-    // =====================================================================
     // Jefe y resultado
-    // =====================================================================
 
     public void MarcarJefeDerrotado()
     {
@@ -386,12 +356,8 @@ public class GameManager : MonoBehaviour
             SumarPuntos(Config.jefe.puntosVictoria, EscenaActual);
     }
 
-    // =====================================================================
     // Parte 5: armar y guardar el JSON de salida
-    // =====================================================================
 
-    /// Construye resumen_partida.json en memoria. El Dictionary de recursos se
-    /// convierte aquí en una lista de pares, porque JsonUtility no lo serializa.
     public ResumenPartida ConstruirResumen(string resultado)
     {
         ResumenPartida r = new ResumenPartida();
@@ -399,14 +365,13 @@ public class GameManager : MonoBehaviour
         r.resultado = resultado;
         r.puntajeTotal = PuntajeTotal;
 
-        // Detalle por escena, en el orden en que se jugaron.
         r.escenas = new List<EscenaResumen>();
-        float tiempoTotal = 0f;
+        float tiempoTotalCalculado = 0f;
         for (int i = 0; i < ordenEscenas.Count; i++)
         {
             string nombre = ordenEscenas[i];
             DatosEscena d = Datos(nombre);
-            tiempoTotal += d.tiempo;
+            tiempoTotalCalculado += d.tiempo;
             r.escenas.Add(new EscenaResumen
             {
                 nombre = nombre,
@@ -417,9 +382,8 @@ public class GameManager : MonoBehaviour
                 muertes = d.muertes
             });
         }
-        r.tiempoTotal = Redondear(tiempoTotal);
+        r.tiempoTotal = Redondear(tiempoTotalCalculado);
 
-        // Dictionary -> List de pares (tipo, cantidad).
         r.recursos = new List<RecursoResumen>();
         foreach (KeyValuePair<string, int> par in CantidadPorTipo)
             r.recursos.Add(new RecursoResumen { tipo = par.Key, cantidad = par.Value });
@@ -452,7 +416,6 @@ public class GameManager : MonoBehaviour
         return m;
     }
 
-    /// Escribe el archivo y devuelve la ruta (se muestra en el panel final).
     public string GuardarResumen(string resultado)
     {
         return JsonService.GuardarResumen(ConstruirResumen(resultado));

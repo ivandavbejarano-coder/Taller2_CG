@@ -1,21 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
-// =====================================================================
-// PlataformaMovil.cs  —  Secciones 7 y 8.1: plataformas móviles
-// ---------------------------------------------------------------------
-// Se mueve entre dos puntos sin usar física (por Transform), que es la forma
-// más sencilla y estable en 2D. Sirve también como "plataforma que cae" para
-// el recorrido de la escena Criatura.
-//
-// Dos modos:
-//   · siempreActiva  = true  -> se mueve desde que empieza la escena
-//   · siempreActiva  = false -> solo se mueve cuando llega su evento de la
-//                               Queue (la activa el Mecanismo con una batería)
-//
-// El nombre del evento se escribe aquí, pero el evento se ENCOLA en el
-// GameManager y se procesa con Dequeue, como pide la sección 6.3.
-// =====================================================================
+
+// PlataformaMovil.cs: plataformas móviles
+
 
 public class PlataformaMovil : MonoBehaviour
 {
@@ -51,7 +39,6 @@ public class PlataformaMovil : MonoBehaviour
 
     private void Start()
     {
-        // Si no se colocaron los Transform, se usan dos puntos a los lados.
         posicionA = puntoA != null ? puntoA.position : transform.position + Vector3.left * 3f;
         posicionB = puntoB != null ? puntoB.position : transform.position + Vector3.right * 3f;
         transform.position = posicionA;
@@ -64,7 +51,6 @@ public class PlataformaMovil : MonoBehaviour
 
     private void OnDestroy()
     {
-        // Se desuscribe con el MISMO método con el que se suscribió.
         if (GameManager.Instance != null)
             GameManager.Instance.OnEvento -= AlLlegarEvento;
     }
@@ -86,8 +72,7 @@ public class PlataformaMovil : MonoBehaviour
         if (movimientoContinuo)
         {
             float distancia = Vector3.Distance(posicionA, posicionB);
-            // Si los dos puntos son el mismo, no hay recorrido: se evita dividir
-            // por cero, que dejaría la posición en NaN y rompería la plataforma.
+
             if (distancia <= 0.001f) return;
 
             // PingPong devuelve un valor que va y vuelve entre 0 y 1.
@@ -116,8 +101,6 @@ public class PlataformaMovil : MonoBehaviour
     {
         if (!colision.collider.CompareTag(TagYCapas.TagJugador)) return;
 
-        // Hacerlo hijo de la plataforma es el truco sencillo para que el
-        // jugador no se resbale ni se quede atrás.
         colision.transform.SetParent(transform);
 
         if (seCaeAlTocarla && !cayendo) StartCoroutine(RutinaDeCaida(colision.transform));
@@ -139,8 +122,7 @@ public class PlataformaMovil : MonoBehaviour
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         if (rb != null)
         {
-            // Para caer de verdad necesita un cuerpo rígido dinámico.
-            rb.bodyType = RigidbodyType2D.Dynamic;
+            rb.bodyType = RigidbodyType2D.Dynamic; // Permitir que la plataforma caiga
             rb.gravityScale = 3f;
         }
         else

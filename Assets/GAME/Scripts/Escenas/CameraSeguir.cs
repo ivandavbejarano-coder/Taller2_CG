@@ -1,16 +1,7 @@
 using UnityEngine;
 
-// =====================================================================
+
 // CameraSeguir.cs  —  cámara simple que sigue al jugador
-// ---------------------------------------------------------------------
-// No es un requisito del taller: es la forma más sencilla de que la
-// cámara acompañe al personaje SIN instalar Cinemachine.
-//
-// LateUpdate: se mueve DESPUÉS de que el jugador actualizó su posición,
-// así la cámara nunca va "un fotograma atrás". Lerp con suavizado hace
-// el movimiento fluido, y los límites (minX/maxX/minY/maxY) evitan que
-// se vea el exterior del nivel.
-// =====================================================================
 
 public class CameraSeguir : MonoBehaviour
 {

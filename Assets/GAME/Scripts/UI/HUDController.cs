@@ -3,19 +3,8 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
-// =====================================================================
-// HUDController.cs  —  Secciones 6.2, 7, 8.2: lo que se ve en pantalla
-// ---------------------------------------------------------------------
-// Muestra corazones, puntaje, cronómetro de la escena, el progreso del
-// requisito («Minerales 3/5»), el buff temporal activo, los mensajes
-// temporales (por ejemplo qué recursos faltan para el elevador) y el
-// inventario consultable.
-//
-// NO guarda datos: todo lo lee del GameManager cada frame. Se coloca una vez
-// en cada escena de juego, dentro del Canvas.
-//
-// Usa UnityEngine.UI (Text e Image) para no depender de TextMeshPro.
-// =====================================================================
+
+// HUDController.cs: lo que se ve en pantalla
 
 public class HUDController : MonoBehaviour
 {
@@ -68,6 +57,9 @@ public class HUDController : MonoBehaviour
         if (raizBarraJefe != null) raizBarraJefe.SetActive(false);
         if (textoMensaje != null) textoMensaje.text = "";
         if (textoBuff != null) textoBuff.text = "";
+
+        // AQUÍ ESTÁ LA LÍNEA AGREGADA: Mensaje en consola en color azul
+        Debug.Log("<color=blue>[HUD] Presiona la tecla '" + teclaInventario + "' para abrir o cerrar el inventario.</color>");
     }
 
     private void Update()
@@ -85,6 +77,12 @@ public class HUDController : MonoBehaviour
         ActualizarBuff();
         ActualizarMensaje();
         ActualizarBarraJefe();
+
+        // Refresca el inventario continuamente mientras el panel esté abierto
+        if (panelInventario != null && panelInventario.activeSelf)
+        {
+            RefrescarInventario();
+        }
 
         if (Input.GetKeyDown(teclaInventario)) AlternarInventario();
     }
@@ -115,12 +113,12 @@ public class HUDController : MonoBehaviour
         textoPuntaje.text = "Puntaje: " + gm.PuntajeTotal;
     }
 
-    // ---------------- Cronómetro de la escena ----------------
+    // ---------------- Cronómetro acumulativo ----------------
 
     private void ActualizarTiempo()
     {
         if (textoTiempo != null)
-            textoTiempo.text = "Tiempo: " + gm.TiempoEscena.ToString("0.0") + " s";
+            textoTiempo.text = "Tiempo: " + gm.TiempoTotal.ToString("0.0") + " s";
 
         if (textoEscena != null)
             textoEscena.text = gm.EscenaActual ?? "";
@@ -204,7 +202,7 @@ public class HUDController : MonoBehaviour
                                   "   ·   Fase " + (jefe.FaseActual + 1);
     }
 
-    // ---------------- Inventario consultable (List) ----------------
+    // ---------------- Inventario consultable ----------------
 
     private void AlternarInventario()
     {
@@ -219,11 +217,11 @@ public class HUDController : MonoBehaviour
 
         StringBuilder sb = new StringBuilder();
 
-        // 1. Encabezado compacto
+
         sb.AppendLine("INVENTARIO (" + gm.Inventario.Count + " objetos)");
         sb.AppendLine("----------------------------------------");
 
-        // 2. Resumen por tipo
+
         if (gm.CantidadPorTipo.Count == 0)
         {
             sb.AppendLine("• Sin objetos recolectados");
@@ -238,7 +236,6 @@ public class HUDController : MonoBehaviour
 
         sb.AppendLine();
 
-        // 3. Registro reciente (Reducido a los últimos 5 para no saturar el panel)
         sb.AppendLine("ÚLTIMOS RECOGIDOS:");
         if (gm.Inventario.Count == 0)
         {
@@ -256,11 +253,11 @@ public class HUDController : MonoBehaviour
 
         textoInventario.text = sb.ToString();
     }
+
     private string Capitalizar(string texto)
     {
         if (string.IsNullOrEmpty(texto)) return "";
 
-        // Reemplaza guiones bajos por espacios
         string textoLimpio = texto.Replace("_", " ");
         string[] palabras = textoLimpio.Split(' ');
 

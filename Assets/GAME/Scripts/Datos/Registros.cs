@@ -3,15 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-// =====================================================================
-// Registros.cs  —  Sección 6.3: los elementos que se guardan en las List
-// ---------------------------------------------------------------------
-// Son clases planas y [Serializable] porque viajan dentro del resumen y
-// porque el enunciado pide que cada registro lleve id/tipo/escena/momento
-// (inventario) o causa/escena/tiempo (golpes y muertes).
-// =====================================================================
 
-/// Una fila del inventario general: se agrega cada vez que se recoge algo.
+// Registros.cs: los elementos que se guardan en las List
+
+
+
 [Serializable]
 public class ItemRecolectado
 {
@@ -29,7 +25,7 @@ public class ItemRecolectado
     }
 }
 
-/// Una fila del historial de golpes recibidos o de muertes.
+
 [Serializable]
 public class RegistroSuceso
 {
@@ -47,8 +43,7 @@ public class RegistroSuceso
     }
 }
 
-/// Un checkpoint apilado en el Stack. Guarda también la escena porque el
-/// respawn solo puede usar checkpoints de la escena donde murió el jugador.
+
 [Serializable]
 public class CheckpointData
 {
@@ -64,10 +59,6 @@ public class CheckpointData
     }
 }
 
-/// Par (tipo, cantidad). Clase auxiliar por si en algún momento se necesita
-/// convertir el Dictionary en una lista fuera del GameManager. El JSON de
-/// salida usa RecursoResumen (ver ResumenPartida.cs), que tiene la misma forma
-/// pero con los nombres de campo que exige el enunciado ("tipo" y "cantidad").
 [Serializable]
 public class ParTipoCantidad
 {
@@ -81,9 +72,7 @@ public class ParTipoCantidad
     }
 }
 
-/// Contador de puntaje/objetos/golpes/muertes de UNA escena.
-/// Se usa como valor de un Dictionary interno del GameManager.
-/// Ojo: NO se serializa en el JSON de salida; para eso está EscenaResumen.
+
 public class DatosEscena
 {
     public float tiempo;

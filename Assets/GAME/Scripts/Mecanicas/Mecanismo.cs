@@ -1,18 +1,7 @@
 using UnityEngine;
 
-// =====================================================================
-// Mecanismo.cs  —  Sección 7: raycast frontal + uso de una batería
-// ---------------------------------------------------------------------
-// Es la palanca o interruptor que el jugador detecta con el raycast frontal y
-// acciona con la tecla E. Implementa IInteractuable para que PlayerController
-// no necesite conocer esta clase concreta.
-//
-// El mecanismo pide un recurso del JSON (por defecto "bateria", con efecto
-// "activar"). Cuando el jugador lo tiene, el mecanismo ENCOLA un evento en la
-// Queue del GameManager — por ejemplo "activarPlataforma" — y es el procesador
-// de la cola el que pone en marcha la PlataformaMovil. Nada se ejecuta aquí
-// directamente, tal como exige la sección 6.3.
-// =====================================================================
+
+// Mecanismo.cs: raycast frontal + uso de una batería
 
 [RequireComponent(typeof(Collider2D))]
 public class Mecanismo : MonoBehaviour, IInteractuable
@@ -32,8 +21,6 @@ public class Mecanismo : MonoBehaviour, IInteractuable
     [SerializeField] private Sprite spriteUsado;
 
     private bool yaUsado;
-
-    // ---------------- IInteractuable ----------------
 
     public string TextoInteraccion
     {
@@ -57,10 +44,6 @@ public class Mecanismo : MonoBehaviour, IInteractuable
         GameManager gm = GameManager.Instance;
         if (gm == null || !gm.ConfigValida) return;
 
-        // Las baterías "activan mecanismos": se exige tenerlas recogidas.
-        // No se descuentan del Dictionary porque ese mismo contador alimenta el
-        // requisitoJefe del elevador y el resumen_partida.json final; si se
-        // restaran aquí, los totales dejarían de ser consistentes.
         int tengo = gm.CantidadDe(TipoDelRecurso());
         if (tengo < cantidadRequerida)
         {
@@ -70,13 +53,11 @@ public class Mecanismo : MonoBehaviour, IInteractuable
 
         yaUsado = true;
 
-        // Se ENCOLA; el procesador del GameManager lo atenderá con Dequeue.
         gm.EncolarEvento(eventoAEncolar);
 
         if (sprite != null && spriteUsado != null) sprite.sprite = spriteUsado;
     }
 
-    /// Traduce el id del recurso ("bateria") a su tipo ("bateria") según el JSON.
     private string TipoDelRecurso()
     {
         GameManager gm = GameManager.Instance;

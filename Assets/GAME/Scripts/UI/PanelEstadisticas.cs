@@ -3,9 +3,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-// =====================================================================
-// PanelEstadisticas.cs  —  Parte 5: pantalla final de estadísticas
-// =====================================================================
+// PanelEstadisticas.cs: pantalla final de estadísticas
+
 
 public class PanelEstadisticas : MonoBehaviour
 {
@@ -26,15 +25,12 @@ public class PanelEstadisticas : MonoBehaviour
         if (botonVolverMenu != null) botonVolverMenu.onClick.AddListener(VolverAlMenu);
     }
 
-    /// Lo llama CriaturaController al derrotar al jefe.
     public void Mostrar(ResumenPartida resumen, string rutaDelArchivo)
     {
         if (resumen == null) return;
 
-        // 1. Activar la raíz visual del panel
         if (raizPanel != null) raizPanel.SetActive(true);
 
-        // 2. Detener completamente la escena (físicas, animaciones y movimiento)
         Time.timeScale = 0f;
 
         if (textoTitulo != null)
@@ -49,8 +45,6 @@ public class PanelEstadisticas : MonoBehaviour
 
         Debug.Log("[Estadísticas]\n" + ConstruirTabla(resumen) + "\n" + ConstruirDetalle(resumen));
     }
-
-    // ---------------- Tabla mínima exigida ----------------
 
     private string ConstruirTabla(ResumenPartida r)
     {
@@ -96,8 +90,6 @@ public class PanelEstadisticas : MonoBehaviour
         return sb.ToString();
     }
 
-    // ---------------- Resto de la información exigida ----------------
-
     private string ConstruirDetalle(ResumenPartida r)
     {
         StringBuilder sb = new StringBuilder();
@@ -125,8 +117,6 @@ public class PanelEstadisticas : MonoBehaviour
 
         return sb.ToString();
     }
-
-    /// Rellena con espacios para que las columnas queden alineadas.
     private string Pad(string texto, int ancho)
     {
         if (texto.Length >= ancho) return texto + " ";
