@@ -31,19 +31,20 @@ public class GameOverManager : MonoBehaviour
     {
         Time.timeScale = 1f; // Reanuda la escala de tiempo de Unity
 
+        // Obtiene la primera escena del juego
+        string escenaInicial = ObtenerEscenaInicial();
+
         if (GameManager.Instance != null)
         {
-            string escenaActual = SceneManager.GetActiveScene().name;
-
-            // 1. Limpia los datos de la partida
+            // 1. Limpia todo el estado global de la partida
             GameManager.Instance.ReiniciarPartida();
 
-            // 2. Reactiva el cronómetro y la escena activa
-            GameManager.Instance.IniciarCronometro(escenaActual);
+            // 2. Inicia el cronómetro apuntando a la escena inicial
+            GameManager.Instance.IniciarCronometro(escenaInicial);
         }
 
-        // 3. Recarga la escena limpia
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        // 3. Carga directamente el Nivel 1
+        SceneManager.LoadScene(escenaInicial);
     }
 
     public void IrAlMenu()
@@ -56,6 +57,18 @@ public class GameOverManager : MonoBehaviour
         }
 
         SceneManager.LoadScene("Menu");
+    }
+
+    private string ObtenerEscenaInicial()
+    {
+        // Intenta obtener el nombre de la escena Mina registrado en la configuración JSON
+        if (GameManager.Instance != null && GameManager.Instance.ConfigValida && !string.IsNullOrEmpty(GameManager.Instance.Config.niveles.escenaMina))
+        {
+            return GameManager.Instance.Config.niveles.escenaMina;
+        }
+
+        // Nombre de escena por defecto si no hay JSON cargado
+        return "Mina";
     }
 
     private void BuscarPanelSiEsNecesario()
