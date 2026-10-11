@@ -37,7 +37,7 @@ public class Elevador : MonoBehaviour, IInteractuable
 
     private void Update()
     {
-        // Respaldo directo en teclado 'E' usando la API actualizada de Unity
+        // Respaldo directo en teclado 'E' usando la API actualizada de Unity (Unity 6 / 2023+)
         if (jugadorDentro && !estaActivado && Input.GetKeyDown(KeyCode.E))
         {
             if (jugadorGuardado == null)
@@ -121,7 +121,21 @@ public class Elevador : MonoBehaviour, IInteractuable
         if (gm == null || !gm.ConfigValida) return;
         if (gm.CumpleRequisitoJefe(out faltantes)) return;
 
-        gm.EncolarEvento("mostrarFaltantes:" + string.Join(", ", faltantes.ToArray()));
+        string faltantesTexto = string.Join(", ", faltantes.ToArray());
+
+        // 1. Registrar evento en el GameManager
+        gm.EncolarEvento("mostrarFaltantes:" + faltantesTexto);
+
+        // 2. Notificar directamente al HUDController para mostrar el mensaje en la pantalla
+        HUDController hud = Object.FindFirstObjectByType<HUDController>();
+        if (hud != null)
+        {
+            hud.MostrarMensaje("Te falta: " + faltantesTexto);
+        }
+        else
+        {
+            Debug.LogWarning("[Elevador] No se encontró HUDController en la escena para desplegar la UI.");
+        }
     }
 
     private IEnumerator SecuenciaElevacion(PlayerController jugador)

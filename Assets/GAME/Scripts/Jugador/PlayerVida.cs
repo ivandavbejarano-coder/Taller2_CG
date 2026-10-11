@@ -28,6 +28,7 @@ public class PlayerVida : MonoBehaviour
     // ---------------- Estado ----------------
 
     private GameManager gmCache;
+    private Vector3 posicionInicial; // Respaldo estático en coordenadas de inicio
 
     private GameManager gm
     {
@@ -59,7 +60,8 @@ public class PlayerVida : MonoBehaviour
         if (gm != null) gm.VidasActuales = Vidas;
         Vivo = true;
 
-        if (puntoSpawn == null) puntoSpawn = transform;
+        // Guarda la posición fija exacta donde inicia el jugador en la escena
+        posicionInicial = transform.position;
     }
 
     private int VidasDelConfig()
@@ -132,7 +134,6 @@ public class PlayerVida : MonoBehaviour
         // --- GAME OVER O RESPAWN ---
         if (Vidas <= 0)
         {
-            // Busca siempre el GameOverManager activo en la escena actual
             GameOverManager managerEnEscena = FindFirstObjectByType<GameOverManager>();
 
             if (managerEnEscena != null)
@@ -158,8 +159,22 @@ public class PlayerVida : MonoBehaviour
 
         if (gm != null) gm.VidasActuales = Vidas;
 
-        if (controlador != null) controlador.Reposicionar(destino);
-        else transform.position = destino;
+        if (controlador != null)
+        {
+            controlador.Reposicionar(destino);
+        }
+        else
+        {
+            transform.position = destino;
+        }
+
+        // Detener la inercia de física acumulada durante la caída
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.angularVelocity = 0f;
+        }
 
         Vivo = true;
         if (sprite != null) sprite.enabled = true;
@@ -175,7 +190,10 @@ public class PlayerVida : MonoBehaviour
             Vector3? delStack = gm.ObtenerRespawn(gm.EscenaActual);
             if (delStack.HasValue) return delStack.Value;
         }
-        return puntoSpawn != null ? puntoSpawn.position : transform.position;
+
+        // 1. Si hay un Objeto asignado en "puntoSpawn", usa sus coordenadas.
+        // 2. Si no, usa la foto de coordenadas tomada al arrancar la escena (posicionInicial).
+        return puntoSpawn != null ? puntoSpawn.position : posicionInicial;
     }
 
     // =====================================================================

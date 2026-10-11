@@ -155,8 +155,22 @@ public class HUDController : MonoBehaviour
     public void MostrarMensaje(string mensaje, float segundos = 0f)
     {
         if (textoMensaje == null) return;
+
+        textoMensaje.gameObject.SetActive(true);
         textoMensaje.text = mensaje;
         finMensaje = Time.time + (segundos > 0f ? segundos : duracionMensaje);
+    }
+
+    /// Método para recibir eventos directo desde GameManager o Elevador
+    public void ProcesarEvento(string nombreEvento)
+    {
+        if (string.IsNullOrEmpty(nombreEvento)) return;
+
+        if (nombreEvento.StartsWith("mostrarFaltantes:"))
+        {
+            string faltantes = nombreEvento.Substring("mostrarFaltantes:".Length);
+            MostrarMensaje("Te falta: " + Capitalizar(faltantes));
+        }
     }
 
     private void ActualizarMensaje()
@@ -177,16 +191,12 @@ public class HUDController : MonoBehaviour
     {
         if (rellenoBarraJefe == null) return;
 
-        // Se cachea para no buscar en toda la escena cada frame. Mientras el jefe
-        // no exista (escena Mina) la búsqueda se repite, pero es barata y devuelve
-        // null; en cuanto aparece, queda guardado.
-        if (jefe == null) jefe = FindFirstObjectByType<Boss>();
+        if (jefe == null) jefe = Object.FindFirstObjectByType<Boss>();
         if (jefe == null) return;
 
         if (raizBarraJefe != null && !raizBarraJefe.activeSelf && jefe.CombateIniciado)
             raizBarraJefe.SetActive(true);
 
-        // Image.type debe estar en "Filled" para que fillAmount funcione.
         rellenoBarraJefe.fillAmount = jefe.VidaProporcion;   // 0..1
 
         if (textoBarraJefe != null)
@@ -208,25 +218,60 @@ public class HUDController : MonoBehaviour
         if (textoInventario == null || gm == null) return;
 
         StringBuilder sb = new StringBuilder();
+
+        // 1. Encabezado compacto
         sb.AppendLine("INVENTARIO (" + gm.Inventario.Count + " objetos)");
-        sb.AppendLine();
+        sb.AppendLine("----------------------------------------");
 
-        // Resumen por tipo (sale del Dictionary del GameManager).
-        foreach (System.Collections.Generic.KeyValuePair<string, int> par in gm.CantidadPorTipo)
-            sb.AppendLine(par.Key + ": " + par.Value);
-
-        sb.AppendLine();
-        sb.AppendLine("Detalle (List):");
-
-        // Se muestran los últimos 12 para que quepan en pantalla.
-        int inicio = Mathf.Max(0, gm.Inventario.Count - 12);
-        for (int i = inicio; i < gm.Inventario.Count; i++)
+        // 2. Resumen por tipo
+        if (gm.CantidadPorTipo.Count == 0)
         {
-            ItemRecolectado it = gm.Inventario[i];
-            sb.AppendLine("· " + it.id + " (" + it.tipo + ") en " + it.escena +
-                          " @" + it.momento.ToString("0.0") + "s");
+            sb.AppendLine("• Sin objetos recolectados");
+        }
+        else
+        {
+            foreach (System.Collections.Generic.KeyValuePair<string, int> par in gm.CantidadPorTipo)
+            {
+                sb.AppendLine("• " + Capitalizar(par.Key) + ": " + par.Value + " unid.");
+            }
+        }
+
+        sb.AppendLine();
+
+        // 3. Registro reciente (Reducido a los últimos 5 para no saturar el panel)
+        sb.AppendLine("ÚLTIMOS RECOGIDOS:");
+        if (gm.Inventario.Count == 0)
+        {
+            sb.AppendLine("• Historial vacío");
+        }
+        else
+        {
+            int inicio = Mathf.Max(0, gm.Inventario.Count - 5);
+            for (int i = inicio; i < gm.Inventario.Count; i++)
+            {
+                ItemRecolectado it = gm.Inventario[i];
+                sb.AppendLine("• " + Capitalizar(it.tipo) + " (" + Capitalizar(it.id) + ") [" + it.momento.ToString("0.0") + "s]");
+            }
         }
 
         textoInventario.text = sb.ToString();
+    }
+    private string Capitalizar(string texto)
+    {
+        if (string.IsNullOrEmpty(texto)) return "";
+
+        // Reemplaza guiones bajos por espacios
+        string textoLimpio = texto.Replace("_", " ");
+        string[] palabras = textoLimpio.Split(' ');
+
+        for (int i = 0; i < palabras.Length; i++)
+        {
+            if (palabras[i].Length > 0)
+            {
+                palabras[i] = char.ToUpper(palabras[i][0]) + palabras[i].Substring(1).ToLower();
+            }
+        }
+
+        return string.Join(" ", palabras);
     }
 }
