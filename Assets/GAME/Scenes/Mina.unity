@@ -42035,6 +42035,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &928964453 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5998028265995467424, guid: 21d042525a93d724ca87a397a6670762, type: 3}
+  m_PrefabInstance: {fileID: 1176077238}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &955033874
 GameObject:
   m_ObjectHideFlags: 0
@@ -63557,7 +63562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 361087462f9c71540b4cb93d887c66c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraSeguir
-  objetivo: {fileID: 0}
+  objetivo: {fileID: 928964453}
   suavizado: 5
   minX: 8
   maxX: 102
