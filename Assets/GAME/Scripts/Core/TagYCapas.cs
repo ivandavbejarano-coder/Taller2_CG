@@ -1,16 +1,6 @@
 using System.Collections;
 using UnityEngine;
 
-// =====================================================================
-// TagYCapas.cs  —  Nombres compartidos por todos los scripts
-// ---------------------------------------------------------------------
-// Concentrar aquí los nombres de capas y tags evita errores de tipeo y hace
-// que el código sea más legible en la sustentación.
-//
-// IMPORTANTE: estas capas hay que crearlas en Unity, en
-// Edit ▸ Project Settings ▸ Tags and Layers (ver la GUÍA_DE_CONFIGURACION).
-// =====================================================================
-
 public static class TagYCapas
 {
     public const string CapaSuelo = "Suelo";

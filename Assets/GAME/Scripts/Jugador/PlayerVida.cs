@@ -1,12 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
-// =====================================================================
-// PlayerVida.cs  —  Sección 6.1: corazones, daño, invulnerabilidad y muertes
-// ---------------------------------------------------------------------
-// Responsabilidad única: la SALUD del personaje. El movimiento lo lleva
-// PlayerController.cs.
-// =====================================================================
+
+// PlayerVida.cs: corazones, daño, invulnerabilidad y muertes
+
 
 public class PlayerVida : MonoBehaviour
 {
@@ -28,7 +25,7 @@ public class PlayerVida : MonoBehaviour
     // ---------------- Estado ----------------
 
     private GameManager gmCache;
-    private Vector3 posicionInicial; // Respaldo estático en coordenadas de inicio
+    private Vector3 posicionInicial; 
 
     private GameManager gm
     {
@@ -73,9 +70,8 @@ public class PlayerVida : MonoBehaviour
         return 0;
     }
 
-    // =====================================================================
     // Recibir daño y Control de Muerte
-    // =====================================================================
+
 
     public void RecibirDanio(int dano, string causa)
     {
@@ -191,14 +187,13 @@ public class PlayerVida : MonoBehaviour
             if (delStack.HasValue) return delStack.Value;
         }
 
-        // 1. Si hay un Objeto asignado en "puntoSpawn", usa sus coordenadas.
-        // 2. Si no, usa la foto de coordenadas tomada al arrancar la escena (posicionInicial).
+    
         return puntoSpawn != null ? puntoSpawn.position : posicionInicial;
     }
 
-    // =====================================================================
+
     // Invulnerabilidad con parpadeo del sprite
-    // =====================================================================
+
 
     private void IniciarInvulnerabilidad()
     {

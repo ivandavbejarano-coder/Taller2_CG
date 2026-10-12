@@ -2,17 +2,9 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-// =====================================================================
-// ConfigJuego.cs  —  Parte 1: modelo de datos del JSON de entrada
-// ---------------------------------------------------------------------
-// Cada clase de aquí refleja una parte de Assets/StreamingAssets/config.json.
-// JsonUtility exige que los nombres de los campos sean IGUALES a las claves
-// del JSON y que las clases lleven [Serializable].
-//
-// OJO (nota técnica del enunciado): JsonUtility NO lee arreglos en la raíz ni
-// Dictionary. Por eso la raíz es un objeto (ConfigJuego) y las colecciones son
-// List<T> de clases serializables.
-// =====================================================================
+
+// ConfigJuego.cs: modelo de datos del JSON de entrada
+
 
 [Serializable]
 public class ConfigJuego
@@ -24,9 +16,6 @@ public class ConfigJuego
     public JefeCfg jefe;
     public NivelesCfg niveles;
 
-    // ---- Métodos de consulta (para no repetir bucles en los demás scripts) ----
-
-    /// Busca la definición de un recurso por su id ("hierro", "bateria"...).
     public RecursoCfg Recurso(string id)
     {
         if (recursos == null) return null;
@@ -36,7 +25,7 @@ public class ConfigJuego
         return null;
     }
 
-    /// Busca la definición de un peligro por su id ("murcielago", "pinchos"...).
+    /// Busca la definición de un peligro por su id ("pinchos"...).
     public PeligroCfg Peligro(string id)
     {
         if (peligros == null) return null;
@@ -55,8 +44,6 @@ public class ConfigJuego
         return 0;
     }
 
-    /// Devuelve el índice de fase (0, 1, 2...) según el porcentaje de vida restante.
-    /// umbralesFase viene ordenado de mayor a menor: [100, 66, 33].
     public int FasePorVida(float vidaActual)
     {
         if (jefe == null || jefe.umbralesFase == null || jefe.umbralesFase.Count == 0) return 0;
@@ -105,7 +92,7 @@ public class RecursoCfg
 [Serializable]
 public class PeligroCfg
 {
-    public string id;             // "murcielago", "pinchos", "sierra", "escarabajo"
+    public string id;             // "pinchos", "fantasma", "escarabajo"
     public string tipo;           // "enemigo" (se mueve) u "obstaculo" (estático)
     public int dano;              // corazones que quita al tocar al jugador
     public float velocidad;       // velocidad de patrulla (0 si es estático)

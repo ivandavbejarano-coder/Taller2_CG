@@ -3,18 +3,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-// =====================================================================
-// PanelEstadisticas.cs  —  Parte 5: pantalla final de estadísticas
-// ---------------------------------------------------------------------
-// Es un PANEL dentro de la escena Criatura (no una escena aparte), tal como
-// piden las condiciones generales. Recibe el ResumenPartida ya construido y lo
-// muestra con la tabla mínima del enunciado: tiempo, puntaje, objetos, golpes
-// y muertes por escena y totales; además el nombre y resultado, los recursos
-// por tipo, las muertes por causa, los checkpoints y la ruta del archivo.
-//
-// La distribución visual es libre: aquí se arma en texto plano con StringBuilder
-// porque es lo más sencillo de mantener y de explicar.
-// =====================================================================
+// PanelEstadisticas.cs: pantalla final de estadísticas
+
 
 public class PanelEstadisticas : MonoBehaviour
 {
@@ -35,13 +25,13 @@ public class PanelEstadisticas : MonoBehaviour
         if (botonVolverMenu != null) botonVolverMenu.onClick.AddListener(VolverAlMenu);
     }
 
-    /// Lo llama CriaturaController al derrotar al jefe.
     public void Mostrar(ResumenPartida resumen, string rutaDelArchivo)
     {
         if (resumen == null) return;
 
         if (raizPanel != null) raizPanel.SetActive(true);
-        if (Time.timeScale != 1f) Time.timeScale = 1f;
+
+        Time.timeScale = 0f;
 
         if (textoTitulo != null)
             textoTitulo.text = resumen.jugador + " — " + resumen.resultado.ToUpper();
@@ -55,8 +45,6 @@ public class PanelEstadisticas : MonoBehaviour
 
         Debug.Log("[Estadísticas]\n" + ConstruirTabla(resumen) + "\n" + ConstruirDetalle(resumen));
     }
-
-    // ---------------- Tabla mínima exigida ----------------
 
     private string ConstruirTabla(ResumenPartida r)
     {
@@ -102,8 +90,6 @@ public class PanelEstadisticas : MonoBehaviour
         return sb.ToString();
     }
 
-    // ---------------- Resto de la información exigida ----------------
-
     private string ConstruirDetalle(ResumenPartida r)
     {
         StringBuilder sb = new StringBuilder();
@@ -131,8 +117,6 @@ public class PanelEstadisticas : MonoBehaviour
 
         return sb.ToString();
     }
-
-    /// Rellena con espacios para que las columnas queden alineadas.
     private string Pad(string texto, int ancho)
     {
         if (texto.Length >= ancho) return texto + " ";
@@ -141,12 +125,14 @@ public class PanelEstadisticas : MonoBehaviour
 
     private void VolverAlMenu()
     {
-        // Se detiene el cronómetro antes de salir, por si acaso.
+        // Reestablecemos el tiempo a la normalidad al cambiar de escena
+        Time.timeScale = 1f;
+
+        // Se detiene el cronómetro antes de salir
         GameManager gm = GameManager.Instance;
         if (gm != null)
         {
             gm.DetenerCronometro();
-            // El nombre de la escena del menú también viene del config.json.
             if (gm.ConfigValida && !string.IsNullOrEmpty(gm.Config.niveles.escenaMenu))
                 nombreEscenaMenu = gm.Config.niveles.escenaMenu;
         }

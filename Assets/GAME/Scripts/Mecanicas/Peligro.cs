@@ -1,19 +1,7 @@
 using UnityEngine;
 
-// =====================================================================
-// Peligro.cs  —  Sección 6.1: enemigos y obstáculos
-// ---------------------------------------------------------------------
-// Un solo script cubre los dos casos que pide el enunciado, porque lo único
-// que cambia es si se mueve o no, y eso lo decide el campo "tipo" del JSON:
-//   · tipo "enemigo"   -> patrulla entre dos puntos a la velocidad del JSON
-//   · tipo "obstaculo" -> se queda quieto (pinchos, trampa, sierra)
-//
-// El daño y la velocidad NO están escritos aquí: se leen de la lista
-// "peligros" de config.json buscando por idPeligro.
-//
-// Este objeto debe tener el Collider2D en modo Trigger y estar en la capa
-// Peligro.
-// =====================================================================
+
+// Peligro.cs: enemigos y obstáculos
 
 [RequireComponent(typeof(Collider2D))]
 public class Peligro : MonoBehaviour
@@ -60,14 +48,13 @@ public class Peligro : MonoBehaviour
 
         if (!esEnemigo || puntoA == null || puntoB == null)
         {
-            // Obstáculo estático: no hace falta recorrido.
+            // Obstáculo estático
             posicionA = posicionB = transform.position;
         }
     }
 
     private void Update()
     {
-        // Solo patrulla si el JSON lo define como enemigo y le da velocidad.
         if (cfg == null || !esEnemigo || cfg.velocidad <= 0f) return;
         if (posicionA == posicionB) return;
 
@@ -91,7 +78,6 @@ public class Peligro : MonoBehaviour
         if (cfg == null) return;
         if (!otro.CompareTag(TagYCapas.TagJugador)) return;
 
-        // La causa que se registra es el mismo "tipo" del JSON: enemigo u obstaculo.
         PlayerVida vida = otro.GetComponent<PlayerVida>();
         if (vida != null) vida.RecibirDanio(cfg.dano, cfg.tipo);
     }

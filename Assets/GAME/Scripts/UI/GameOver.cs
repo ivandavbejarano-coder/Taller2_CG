@@ -29,21 +29,17 @@ public class GameOverManager : MonoBehaviour
 
     public void ReiniciarNivel()
     {
-        Time.timeScale = 1f; // Reanuda la escala de tiempo de Unity
+        Time.timeScale = 1f; 
 
-        // Obtiene la primera escena del juego
         string escenaInicial = ObtenerEscenaInicial();
 
         if (GameManager.Instance != null)
         {
-            // 1. Limpia todo el estado global de la partida
             GameManager.Instance.ReiniciarPartida();
 
-            // 2. Inicia el cronómetro apuntando a la escena inicial
             GameManager.Instance.IniciarCronometro(escenaInicial);
         }
 
-        // 3. Carga directamente el Nivel 1
         SceneManager.LoadScene(escenaInicial);
     }
 
@@ -61,13 +57,11 @@ public class GameOverManager : MonoBehaviour
 
     private string ObtenerEscenaInicial()
     {
-        // Intenta obtener el nombre de la escena Mina registrado en la configuración JSON
         if (GameManager.Instance != null && GameManager.Instance.ConfigValida && !string.IsNullOrEmpty(GameManager.Instance.Config.niveles.escenaMina))
         {
             return GameManager.Instance.Config.niveles.escenaMina;
         }
 
-        // Nombre de escena por defecto si no hay JSON cargado
         return "Mina";
     }
 

@@ -1,17 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// =====================================================================
-// MinaController.cs  —  Sección 7: lógica propia de la escena Mina
-// ---------------------------------------------------------------------
-// Hace SOLO lo que le corresponde a esta escena:
-//   · arrancar y detener el cronómetro de la Mina (se conserva al salir)
-//   · atender los eventos que salen de la Queue del GameManager y que tienen
-//     sentido aquí (por ejemplo mostrar qué recursos faltan para el elevador)
-//
-// Todo lo demás (datos, inventario, puntaje, muertes) vive en el GameManager,
-// que es el objeto colocado en esta escena con DontDestroyOnLoad.
-// =====================================================================
+// MinaController.cs: lógica propia de la escena Mina
+
 
 public class MinaController : MonoBehaviour
 {
@@ -39,7 +30,7 @@ public class MinaController : MonoBehaviour
             return;
         }
 
-        // Cronómetro propio de la escena, visible en el HUD.
+        // Cronómetro propio de la escena
         gm.IniciarCronometro(nombreEscena);
 
         gm.OnEvento += AtenderEvento;
@@ -63,7 +54,6 @@ public class MinaController : MonoBehaviour
         }
     }
 
-    /// Atiende UN evento ya procesado por la cola del GameManager.
     private void AtenderEvento(string evento)
     {
         if (evento.StartsWith("mostrarFaltantes:"))

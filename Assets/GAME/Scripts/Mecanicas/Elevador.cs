@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// =====================================================================
-// Elevador.cs  —  Sección 7: puerta o elevador de salida
-// =====================================================================
+
+// Elevador.cs: puerta o elevador de salida
+
 
 [RequireComponent(typeof(Collider2D))]
 public class Elevador : MonoBehaviour, IInteractuable
@@ -23,6 +23,7 @@ public class Elevador : MonoBehaviour, IInteractuable
     private bool jugadorDentro;
     private bool cumple;
     private bool estaActivado;
+    private bool eraCumplidoAnteriormente = false;
     private List<string> faltantes = new List<string>();
     private PlayerController jugadorGuardado;
 
@@ -37,7 +38,7 @@ public class Elevador : MonoBehaviour, IInteractuable
 
     private void Update()
     {
-        // Respaldo directo en teclado 'E' usando la API actualizada de Unity (Unity 6 / 2023+)
+        // Respaldo directo en teclado 'E' 
         if (jugadorDentro && !estaActivado && Input.GetKeyDown(KeyCode.E))
         {
             if (jugadorGuardado == null)
@@ -85,9 +86,17 @@ public class Elevador : MonoBehaviour, IInteractuable
 
         if (sprite != null)
             sprite.color = cumple ? colorDisponible : colorBloqueado;
-    }
 
-    // ---------------- IInteractuable ----------------
+        if (cumple && !eraCumplidoAnteriormente && !estaActivado)
+        {
+            Debug.Log("<color=green>[Elevador] Elevador disponible. Presiona 'E' para subir.</color>");
+            eraCumplidoAnteriormente = true;
+        }
+        else if (!cumple)
+        {
+            eraCumplidoAnteriormente = false;
+        }
+    }
 
     public string TextoInteraccion
     {
@@ -123,10 +132,8 @@ public class Elevador : MonoBehaviour, IInteractuable
 
         string faltantesTexto = string.Join(", ", faltantes.ToArray());
 
-        // 1. Registrar evento en el GameManager
         gm.EncolarEvento("mostrarFaltantes:" + faltantesTexto);
 
-        // 2. Notificar directamente al HUDController para mostrar el mensaje en la pantalla
         HUDController hud = Object.FindFirstObjectByType<HUDController>();
         if (hud != null)
         {

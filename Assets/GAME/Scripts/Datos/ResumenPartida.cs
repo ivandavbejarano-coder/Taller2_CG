@@ -1,20 +1,9 @@
 using System;
 using System.Collections.Generic;
 
-// =====================================================================
-// ResumenPartida.cs  —  Parte 5: modelo de datos del JSON de salida
-// ---------------------------------------------------------------------
-// Estas clases definen la forma EXACTA de resumen_partida.json, el archivo que
-// se escribe en Application.persistentDataPath al derrotar al jefe.
-//
-// OJO (nota técnica del enunciado): el Dictionary de recursos NO se serializa
-// con JsonUtility. Por eso aquí es una List<RecursoResumen> de pares
-// (tipo, cantidad); la conversión la hace GameManager.ConstruirResumen().
-//
-// Los totales deben ser coherentes con el detalle por escena: la suma de
-// muertes por causa tiene que dar muertes.total, la suma de puntajes por
-// escena tiene que dar puntajeTotal, etc.
-// =====================================================================
+
+// ResumenPartida.cs: modelo de datos del JSON de salida
+
 
 [Serializable]
 public class ResumenPartida

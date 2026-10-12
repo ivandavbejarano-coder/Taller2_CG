@@ -1,17 +1,7 @@
 using UnityEngine;
 
-// =====================================================================
-// Checkpoint.cs  —  Secciones 6.3, 7 y 8.1: historial con Stack
-// ---------------------------------------------------------------------
-// Al tocarlo se APILA (Push) en el Stack de checkpoints del GameManager. El
-// respawn del jugador toma el elemento del tope que pertenezca a la escena
-// actual (ver GameManager.ObtenerRespawn).
-//
-// La mina necesita mínimo tres (uno por sector) y el recorrido de la criatura
-// mínimo dos, más uno a la entrada de la guarida.
-//
-// Debe tener el Collider2D en modo Trigger y estar en la capa Checkpoint.
-// =====================================================================
+
+// Checkpoint.cs
 
 [RequireComponent(typeof(Collider2D))]
 public class Checkpoint : MonoBehaviour
@@ -51,7 +41,6 @@ public class Checkpoint : MonoBehaviour
         GameManager gm = GameManager.Instance;
         if (gm == null) return;
 
-        // Push al Stack, con la escena y el momento (para el registro).
         gm.ActivarCheckpoint(transform.position, gm.EscenaActual);
         activado = true;
 

@@ -1,24 +1,8 @@
 using System.Collections;
 using UnityEngine;
 
-// =====================================================================
-// Boss.cs  —  Sección 8.2: la criatura de la guarida
-// ---------------------------------------------------------------------
-// Cumple los criterios de la tabla 8.2:
-//   · Desplazamiento -> se mueve entre los puntos definidos aquí (mínimo tres)
-//   · Tres fases     -> cambian según la vida restante usando jefe.umbralesFase
-//   · Valores JSON   -> vida, velocidadPorFase y danoPorFase salen de config.json
-//   · Daño al jefe   -> el jugador lo daña con el ataque frontal (tecla J)
-//   · Barra de vida  -> se muestra por el HUD cuando empieza el combate
-//   · Muerte del jugador en la guarida -> el jefe reinicia vida y fase
-//   · Victoria       -> suma puntosVictoria, detiene cronómetros y encola el
-//                       evento que escribe el JSON y muestra el panel final
-//
-// COMPORTAMIENTO DISTINTO POR FASE (para que se note a simple vista):
-//   Fase 1 -> patrulla tranquila entre los puntos de la guarida
-//   Fase 2 -> persigue al jugador cuando lo tiene cerca y ataca más seguido
-//   Fase 3 -> persigue siempre y embiste (dash) hacia el jugador
-// =====================================================================
+
+// Boss.cs
 
 [RequireComponent(typeof(Collider2D))]
 public class Boss : MonoBehaviour
@@ -88,13 +72,12 @@ public class Boss : MonoBehaviour
             vidaJugador = goJugador.GetComponent<PlayerVida>();
         }
 
-        ReiniciarPorMuerteDelJugador();   // deja vida y fase en su estado inicial
+        ReiniciarPorMuerteDelJugador(); 
 
         if (puntos == null || puntos.Length < 3)
             Debug.LogWarning("[Boss] El enunciado pide mínimo TRES puntos de movimiento " +
                              "en la guarida. Arrastra al menos 3 Transform vacíos al array 'puntos'.");
 
-        // El jefe espera quieto hasta que llega el evento 'iniciarCombate'.
         if (gm != null) gm.OnEvento += AtenderEvento;
     }
 
@@ -108,7 +91,7 @@ public class Boss : MonoBehaviour
         if (evento == "iniciarCombate") IniciarCombate();
     }
 
-    /// Lo dispara el TriggerEvento del final del recorrido (a través de la Queue).
+
     public void IniciarCombate()
     {
         if (combateIniciado || muerto) return;
@@ -120,9 +103,8 @@ public class Boss : MonoBehaviour
         Debug.Log("[Boss] ¡Combate iniciado! Vida=" + vidaActual + " Fase=" + (faseActual + 1));
     }
 
-    // =====================================================================
     // Movimiento y ataque
-    // =====================================================================
+  
 
     private void Update()
     {
@@ -134,7 +116,6 @@ public class Boss : MonoBehaviour
         GirarHaciaElJugador();
     }
 
-    /// Velocidad y daño de la fase actual, leídos de las listas del JSON.
     private float VelocidadDeFase()
     {
         if (cfg.velocidadPorFase == null || cfg.velocidadPorFase.Count == 0) return 2f;
@@ -156,7 +137,7 @@ public class Boss : MonoBehaviour
         float distanciaAlJugador = Vector2.Distance(transform.position, jugador.position);
         bool perseguir = false;
 
-        // Fase 1: solo patrulla. Fase 2: persigue si está cerca. Fase 3+: siempre.
+        // Fase 1: solo patrulla. Fase 2: persigue si está cerca. Fase 3: te sigue y ataca.
         if (faseActual >= 2) perseguir = true;
         else if (faseActual == 1) perseguir = distanciaAlJugador <= cfg.distanciaAtaque * 2f;
 
@@ -188,13 +169,11 @@ public class Boss : MonoBehaviour
         float distancia = Vector2.Distance(transform.position, jugador.position);
         if (distancia > cfg.distanciaAtaque) return;
 
-        // En las fases altas ataca con más frecuencia (se nota en el juego).
         float cadencia = cfg.tiempoEntreAtaques / (1f + faseActual * 0.5f);
         if (Time.time - ultimoAtaque < cadencia) return;
 
         ultimoAtaque = Time.time;
 
-        // Fase 3: embestida hacia el jugador.
         if (faseActual >= 2 && !embistiendo) StartCoroutine(Embestir());
 
         if (distancia <= radioDeContacto)
@@ -214,9 +193,9 @@ public class Boss : MonoBehaviour
         sprite.flipX = jugador.position.x < transform.position.x;
     }
 
-    // =====================================================================
+
     // Daño, fases y muerte
-    // =====================================================================
+  
 
     /// Lo llama PlayerController cuando el raycast frontal del jugador lo toca.
     public void RecibirDanio(int dano)
@@ -229,8 +208,6 @@ public class Boss : MonoBehaviour
         if (vidaActual <= 0f) Morir();
     }
 
-    /// Compara la vida restante con los umbrales del JSON y cambia de fase.
-    /// El cambio de fase se ENCOLA como evento (ejemplo de la sección 6.3).
     private void ActualizarFase()
     {
         if (gm == null || !gm.ConfigValida) return;
@@ -255,20 +232,15 @@ public class Boss : MonoBehaviour
     {
         muerto = true;
 
-        // Suma puntosVictoria y detiene los cronómetros.
         if (gm != null) gm.MarcarJefeDerrotado();
 
         if (sprite != null) sprite.color = Color.gray;
         if (anim != null) anim.SetTrigger("Muere");
 
-        // La Queue se encarga de que el controlador escriba el JSON y muestre
-        // el panel de estadísticas: nada de esto se ejecuta aquí directamente.
         if (gm != null) gm.EncolarEvento("victoria");
     }
 
-    /// Si el jugador muere en la guarida, el jefe reinicia su vida y su fase.
-    /// Si el jefe ya fue derrotado, no se hace nada: sin esta guarda, una caída
-    /// al vacío después de la victoria lo reviviría con el combate activo.
+
     public void ReiniciarPorMuerteDelJugador()
     {
         if (muerto) return;
@@ -307,7 +279,6 @@ public class Boss : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
-        // Ayuda visual para montar la guarida: dibuja los puntos y su recorrido.
         Gizmos.color = Color.magenta;
         if (puntos == null) return;
         for (int i = 0; i < puntos.Length; i++)
